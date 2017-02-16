@@ -1,0 +1,7 @@
+.answers input {
+	display: inline-block;
+}
+
+label, .psuedo-label {
+	margin-top: 15px;
+}
