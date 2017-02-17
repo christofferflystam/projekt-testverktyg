@@ -1,27 +1,31 @@
+test-page.template = function() { 
+
+return `
+
 <div class ="container-fluid">
 		<div class="row">
-			<div class ="container-fluid">
+			<div class ="container">
 				<div class="row">
 					<div class="col-md-2 col-sm-12 side-bar">
 						<div class="side-bar-content">
 							<ul class="list-group">
-								<li class="list-group-item"><a href="javascript:;">Fråga 1</a></li>
-								<li class="list-group-item"><a href="javascript:;">Fråga 2</a></li>
-								<li class="list-group-item"><a href="javascript:;">Fråga 3</a></li>
-								<li class="list-group-item"><a href="javascript:;">Fråga 4</a></li>
-								<li class="list-group-item"><a href="javascript:;">Fråga 5</a></li>
-								<li class="list-group-item"><a href="javascript:;">Fråga 6</a></li>
-								<li class="list-group-item"><a href="javascript:;">Fråga 7</a></li>
-								<li class="list-group-item"><a href="javascript:;">Fråga 8</a></li>
+								<li class="list-group-item"><a href="javascript:;">Question 1</a></li>
+								<li class="list-group-item"><a href="javascript:;">Question 2</a></li>
+								<li class="list-group-item"><a href="javascript:;">Question 3</a></li>
+								<li class="list-group-item"><a href="javascript:;">Question 4</a></li>
+								<li class="list-group-item"><a href="javascript:;">Question 5</a></li>
+								<li class="list-group-item"><a href="javascript:;">Question 6</a></li>
+								<li class="list-group-item"><a href="javascript:;">Question 7</a></li>
+								<li class="list-group-item"><a href="javascript:;">Question 8</a></li>
 							</ul>
 						</div>
 						<div class="side-bar-button-group">
 							<button type="button" class="btn">Finish test</button>
 						</div>
 					</div>
-					<div class="col-md-8 col-sm-12">
-						<h1>Fråga 1</h1>
-						<div class="psuedo-label">Vem är Sveriges stadsminister?</p>
+					<div class="col-md-8 col-sm-12 question">
+						<h1>Question 1</h1>
+						<div class="psuedo-label">Who is Swedens prime minister?</p>
 							<div>
 								<input type="radio" name="question" id="id1" value="spring"><label for="id1">Donald Trump</label>
 							</div>
@@ -47,3 +51,5 @@
 			</div>
 		</div>
 	</div>
+
+`
