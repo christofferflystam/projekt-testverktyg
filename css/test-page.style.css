@@ -8,14 +8,19 @@ label, .psuedo-label {
 
 .side-bar {
 	border: 2px solid black;
-	min-height: 80vh;
+	height: 80vh;
 }
 
 .side-bar-content {
-	min-height: 70vh;
+	height: 70vh;
 }
 
 .side-bar-button-group {
 	position: absolute;
 	bottom: 1%;
 }
+
+.side-bar-button-group button {
+	margin-bottom: 1%;
+}
+
