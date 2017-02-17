@@ -5,3 +5,17 @@
 label, .psuedo-label {
 	margin-top: 15px;
 }
+
+.side-bar {
+	border: 2px solid black;
+	min-height: 80vh;
+}
+
+.side-bar-content {
+	min-height: 70vh;
+}
+
+.side-bar-button-group {
+	position: absolute;
+	bottom: 1%;
+}
