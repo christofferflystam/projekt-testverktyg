@@ -1,5 +1,6 @@
 class Tests{
   
+  /*Add Array for questions*/
   constructor(testId, testName){
     this.testId = testId;
 	this.testName = testName;

@@ -1,5 +1,6 @@
 class User{
 
+/*Add Array for completed tests*/
 constructor(username, firstName, lastName, role){
   this.username = username;
   this.firstName = firstName;
