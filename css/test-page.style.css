@@ -1,60 +1,7 @@
-.answers input {
-	display: inline-block;
-}
 
-label, .psuedo-label {
-	margin-top: 15px;
-}
 
-.side-bar {
-	border: 2px solid black;
-	height: 80vh;
-}
-
-.side-bar-content {
-	height: 70vh;
-	margin-top: 5%;
-}
-
-.side-bar-button-group {
-	position: absolute;
-	bottom: 1%;
-}
-
-.side-bar-button-group button {
-	margin-bottom: 1%;
-}
-
-@media (max-width: 991px) {
-	h1 {
-		font-size: 25px;	
-	}
-
-	input {
-		border: 0px;
-		width: 20px;
-		height: 20px;
-	}
-
-	.psuedo-label {
-		font-size: 20px;
-	}
-
-	.side-bar {
-		height: 10vh;
-		border: 0;
-		margin: 0;
-	}
-
+@media (max-width: 767px) {
 	.side-bar-content {
 		display: none;
-	}
-
-	.side-bar-button-group button {
-		font-size: 20px;
-	}
-
-	.question {
-		margin: 10% 0;
 	}
 }
