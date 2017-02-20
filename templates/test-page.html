@@ -3,6 +3,9 @@ test-page.template = function() {
 return `
 
 <div class="container">
+	<div class="page-header">
+		<h1>Kunskapstest</h1>
+	</div>
 	<div class="row">
 		<div class="col-sm-3 col-xs-12 hidden-xs side-bar">
 			<div class="side-bar-content">
@@ -38,19 +41,19 @@ return `
 		</div>
 		<div class="col-sm-3 col-xs-12 side-bar">
 			<div class="side-bar-content">
-				
+
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-6 button-left">
-			<button type="button" class="btn">Finish test</button>
-		</div>
-		<div class="col-xs-6 button-right">
 			<button type="button" class="btn">Previous</button>
 			<button type="button" class="btn">Next</button>
+		</div>
+		<div class="col-xs-6 button-right">
+			<button type="button" class="btn">Finish test</button>
 		</div>	
 	</div>
-</div>	
+</div>
 
 `
