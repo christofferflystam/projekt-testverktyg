@@ -1,0 +1,12 @@
+.list-group>.list-group-item>a {
+	color: black;
+}
+
+.button-right>button{
+	float: right;
+	margin-left: 2px;
+}
+
+@media (max-width: 767px) {
+	
+}

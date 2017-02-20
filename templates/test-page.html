@@ -1,0 +1,59 @@
+test-page.template = function() { 
+
+return `
+
+<div class="container">
+	<div class="page-header">
+		<h1>Kunskapstest</h1>
+	</div>
+	<div class="row">
+		<div class="col-sm-3 col-xs-12 hidden-xs side-bar">
+			<div class="side-bar-content">
+				<ul class="list-group">
+					<!--Active för mockup-purpose -->
+					<li class="list-group-item active"><a href="javascript:;">Question 1</a></li>
+					<li class="list-group-item"><a href="javascript:;">Question 2</a></li>
+					<li class="list-group-item"><a href="javascript:;">Question 3</a></li>
+					<li class="list-group-item"><a href="javascript:;">Question 4</a></li>
+					<li class="list-group-item"><a href="javascript:;">Question 5</a></li>
+					<li class="list-group-item"><a href="javascript:;">Question 6</a></li>
+					<li class="list-group-item"><a href="javascript:;">Question 7</a></li>
+					<li class="list-group-item"><a href="javascript:;">Question 8</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-6 col-xs-12 question">
+			<h1>Question 1</h1>
+			<div class="psuedo-label">Who is Swedens prime minister?</p>
+				<div>
+					<input type="radio" name="question" id="id1" value="spring"><label for="id1">Donald Trump</label>
+				</div>
+				<div>
+					<input type="radio" name="question" id="id2" value="summer"><label for="id2">Stefan Löfven</label>
+				</div>
+				<div>
+					<input type="radio" name="question" id="id3" value="autumn"><label for="id3">Bujamin Saliu</label>
+				</div>
+				<div>
+					<input type="radio" name="question" id="id4" value="winter"><label for="id4">Fredrik Reinfeldt</label>
+				</div>
+			</div>	
+		</div>
+		<div class="col-sm-3 col-xs-12 side-bar">
+			<div class="side-bar-content">
+
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-6 button-left">
+			<button type="button" class="btn">Previous</button>
+			<button type="button" class="btn">Next</button>
+		</div>
+		<div class="col-xs-6 button-right">
+			<button type="button" class="btn">Finish test</button>
+		</div>	
+	</div>
+</div>
+
+`
