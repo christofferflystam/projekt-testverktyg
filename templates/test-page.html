@@ -1,10 +1,8 @@
-test-page.template = function() { 
+Test.addTemplate('default', function(){return `
 
-return `
 
-<div class="container">
 	<div class="page-header">
-		<h1>Kunskapstest</h1>
+		<h1>Knowledge test</h1>
 	</div>
 	<div class="row">
 		<div class="col-sm-3 col-xs-12 hidden-xs side-bar">
@@ -54,6 +52,6 @@ return `
 			<button type="button" class="btn">Finish test</button>
 		</div>	
 	</div>
-</div>
 
-`
+
+`});
