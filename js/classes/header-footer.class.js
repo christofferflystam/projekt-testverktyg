@@ -1,3 +1,0 @@
-class HeaderFooter extends Base {
-	
-}
