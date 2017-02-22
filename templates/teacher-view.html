@@ -41,13 +41,12 @@ TeacherView.addTemplate('default', function(){return `
 
 <div class="col-sm-3 col-xs-12 side-bar">
  <div class="side-bar-content">
-  <div class="input-group">
-   <span class="input-group-addon">
-    <input type="radio" aria-label="...">Correct </span>
-      </div><!-- /input-group -->
-       <div class="input-group">
-     	<span class="input-group-addon">
-         <input type="radio" aria-label="...">Wrong </span>
+  	<div>
+	  <input type="radio" name="checkAnswer" id="id1" value="correct"><label for="id1">Correct</label>
+	</div>
+          <div>
+	        <input type="radio" name="checkAnswer" id="id2" value="wrong"><label for="id2">Wrong</label>
+	      </div>
        </div><!-- /input-group -->
       </div>
 	 </div>
