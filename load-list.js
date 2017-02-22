@@ -29,11 +29,13 @@ window.load = `
     app.class.js
     header-footer.class.js
     login.class.js
+    teacher-view.class.js
 
   templates/
     header-footer.html
     login.html
     test-page.html
+    teacher-view.html
 
   js/main.js
 
