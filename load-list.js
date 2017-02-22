@@ -22,12 +22,28 @@ window.load = `
     router.class.js
   
   js/classes/
+    completed-question.class.js
+    completed-question-view.class.js
+    completed-question-list.class.js
+    
+    test-list.class.js
+    test.class.js
+    test-view.class.js
+    question.class.js
+    question-view.class.js
+    question-list.class.js
+    option.class.js
+    option-list.class.js
+    option-view.class.js
+    answer.class.js
+    answer-view.class.js
+    answer-list.class.js
+    completed-test-list.class.js
+    completed-test-view.class.js
+    completed-test.class.js
     user-list.class.js
     user-view.class.js
     user.class.js
-    answer.class.js
-    question.class.js
-    test.class.js
     app.class.js
     header-footer.class.js
     login.class.js

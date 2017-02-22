@@ -1,17 +1,22 @@
 class Test extends Base{
+
+
+
+/*Add Array for completed tests*/
+constructor(propertyValues){
+  super(propertyValues);
   
-  /*Add Array for questions
-  constructor(testId, testName){
-    this.testId = testId;
-	this.testName = testName;
+}
+
+
+
+  static get sqlQueries(){
+    return {
+      //example of sqlquery
+      newTest: `
+        INSERT tests SET ?
+      ` 
+    }
   }
 
-  get testId(){
-	  return this.testId;
-  }
-  
-  get testName(){
-	  return this.testName;
-  }*/
-		
 }
