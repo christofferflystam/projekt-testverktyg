@@ -1,0 +1,4 @@
+class ResultPage extends Base{
+	
+	
+}

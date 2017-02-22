@@ -16,5 +16,8 @@ class App {
     b.display('.content');
     */
 
+    var result = new ResultPage();
+    result.display('.content');
+
   }
 }
