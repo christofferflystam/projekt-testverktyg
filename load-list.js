@@ -22,28 +22,27 @@ window.load = `
     router.class.js
   
   js/classes/
+    user-list.class.js
+    user-view.class.js
+    user.class.js
     answer.class.js
     question.class.js
     test.class.js
-    user.class.js
     app.class.js
     header-footer.class.js
     login.class.js
-<<<<<<< HEAD
     result-page.class.js
-=======
     teacher-view.class.js
->>>>>>> TeacherView
+    
+
+
 
   templates/
     header-footer.html
     login.html
     test-page.html
-<<<<<<< HEAD
     result-page.html
-=======
     teacher-view.html
->>>>>>> TeacherView
 
   js/main.js
 

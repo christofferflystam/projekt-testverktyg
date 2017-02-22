@@ -22,5 +22,14 @@ class App {
     var result = new ResultPage();
     result.display('.content');
 
+
+
+    var testUserList = new UserList();
+    console.log(testUserList);
+
+
+
+ 
+    
   }
 }
