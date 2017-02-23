@@ -6,15 +6,17 @@ class App {
     var a = new HeaderFooter();
     a.display('body');
 
+
+
     /*
     var teacherview = new TeacherView();
     teacherview.display('.content');
     */
 
-    /*
+    
+    
     var login = new Login();
     login.display('.content');
-    */
 
     /*
     var b = new Test();
@@ -26,9 +28,15 @@ class App {
     result.display('.content');
     */
 
+
     var testUserList = new UserList();
       testUserList.readAllFromDb(()=>{
-        console.log("Read from DB",testUserList);
+        var obj = Object.assign({}, testUserList);
+        login.callit(obj); //Assign the list to operate upon it
+
+
+        
+
       });
     
     var testTestList = new TestList();
@@ -55,18 +63,7 @@ class App {
     var testAnswerList = new AnswerList();
       testAnswerList.readAllFromDb(()=>{
         console.log("Read from DB",testAnswerList);
-      });
-    
-    
-    
-    
-
-
-
-
-
-
- 
-    
+      });  
+        
   }
 }
