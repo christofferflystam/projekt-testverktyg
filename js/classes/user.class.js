@@ -1,22 +1,22 @@
-class User{
+class User extends Base{
+
+
 
 /*Add Array for completed tests*/
-constructor(username, firstName, lastName, role){
-  this.username = username;
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.role = role;
-}
-get username(){ //getter
-  return this.username; 
+constructor(propertyValues){
+  super(propertyValues);
+  
 }
 
-get name(){ 
-	return this.firstName  + ' ' + this.lastName;
-}
 
-get role(){
-	return this.role;
-}
+
+  static get sqlQueries(){
+    return {
+      //example of sqlquery
+      newUser: `
+        INSERT users SET ?
+      ` 
+    }
+  }
 
 }
