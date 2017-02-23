@@ -1,4 +1,4 @@
-Test.addTemplate('default', function(){return `
+TestView.addTemplate('default', function(){return `
 
 
 	<div class="page-header">
@@ -22,21 +22,8 @@ Test.addTemplate('default', function(){return `
 		</div>
 		<div class="col-sm-6 col-xs-12 question">
 			<h1>Question 1</h1>
-			<div class="psuedo-label">Who is Swedens prime minister?</p>
-				<div>
-					<input type="radio" name="question" id="id1" value="spring"><label for="id1">Donald Trump</label>
-				</div>
-				<div>
-					<input type="radio" name="question" id="id2" value="summer"><label for="id2">Stefan Löfven</label>
-				</div>
-				<div>
-					<input type="radio" name="question" id="id3" value="autumn"><label for="id3">Bujamin Saliu</label>
-				</div>
-				<div>
-					<input type="radio" name="question" id="id4" value="winter"><label for="id4">Fredrik Reinfeldt</label>
-				</div>
-			</div>	
 		</div>
+		${this.tests.display()}
 		<div class="col-sm-3 col-xs-12 side-bar">
 			<div class="side-bar-content">
 

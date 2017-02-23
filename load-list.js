@@ -25,7 +25,7 @@ window.load = `
     completed-question.class.js
     completed-question-view.class.js
     completed-question-list.class.js
-    
+    generate-data.class.js
     test-list.class.js
     test.class.js
     test-view.class.js
@@ -54,11 +54,13 @@ window.load = `
 
 
   templates/
+    test.html
     header-footer.html
     login.html
     test-page.html
     result-page.html
     teacher-view.html
+
 
   js/main.js
 
