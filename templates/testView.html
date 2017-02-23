@@ -22,8 +22,9 @@ TestView.addTemplate('default', function(){return `
 		</div>
 		<div class="col-sm-6 col-xs-12 question">
 			<h1>Question 1</h1>
+			${this.tests.display()}
 		</div>
-		${this.tests.display()}
+		
 		<div class="col-sm-3 col-xs-12 side-bar">
 			<div class="side-bar-content">
 
