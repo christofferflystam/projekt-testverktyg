@@ -84,10 +84,11 @@ class App {
   
             theTestView.tests[i].questions.push(questionsListFromDb[j]);
 
+
           }
         
         }
-
+        console.log(theTestView.tests[i].questions);
 
       }
 
@@ -101,6 +102,7 @@ class App {
     //an argument
     //remember that callback in this case is the 
     //function we supplied before which was this.start
+    console.log('log fourth test', theTestView.tests[0].questions);
     this.callback(theTestView);
     
     
@@ -118,10 +120,11 @@ class App {
     
     //sets its own TestView variable to the TestView
     //created back in loadTestsFromDb
-    this.testView = testView;
+    //this.testView = testView;
     
     //logs to see that all data is there
     console.log('newest', testView);
+    console.log('checking length', testView.tests[0])
     
     //logs the specific name of the retrieved test
     //to make sure it got the correct test
@@ -138,11 +141,10 @@ class App {
     //that belongs to the HeaderFooter object
     //this starts the chain of checking templates
     //to see how it is supposed to be displayed
-    this.testView.display('.content');
-
+    setTimeout(function() {
+    testView.display('.content');
+    }, 5);
     
-
-
 
 
   }

@@ -12,11 +12,7 @@ class Test extends Base{
 /*Add Array for completed tests*/
   constructor(propertyValues){
  	super(propertyValues);
- 	this.questions.push({
- 	  question_id: 0,
-      question_text: 'standard',
-      tests_test_id: 0
- 	})
+ 	
  	
   
 	}
