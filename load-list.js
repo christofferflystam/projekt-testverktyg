@@ -42,10 +42,14 @@ window.load = `
     completed-test.class.js
     user-list.class.js
     user-view.class.js
+    login.class.js
+    login-view.class.js
+    login-list.class.js
     user.class.js
     app.class.js
     header-footer.class.js
-    login.class.js
+
+
     result-page.class.js
     teacher-view.class.js
     
