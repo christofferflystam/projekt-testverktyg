@@ -1,14 +1,22 @@
-class Answer{
+class Answer extends Base{
 
-constructor(choice, choiceText){
-	this.choice = choice;
-	this.choiceText = choiceText;
+
+
+/*Add Array for completed tests*/
+constructor(propertyValues){
+  super(propertyValues);
+  
 }
 
-get choice(){
-	return this.choice;
-}
-get choiceText(){
-	return this.choiceText;
+
+
+  static get sqlQueries(){
+    return {
+      //example of sqlquery
+      newUser: `
+        INSERT answers SET ?
+      ` 
+    }
   }
+
 }

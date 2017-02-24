@@ -1,16 +1,22 @@
-class Question {
+class Question extends Base{
 
-/*Add Array for options?*/
-constructor(questionId, questionText){
-	this.questionId = questionId;
-	this.questionText = questionText;
+
+
+/*Add Array for completed tests*/
+constructor(propertyValues){
+  super(propertyValues);
+  
 }
 
-get questionId(){
-	return this.questionId;
-}
 
-get questionText(){
-	return this.questionText;
+
+  static get sqlQueries(){
+    return {
+      //example of sqlquery
+      newQuestion: `
+        INSERT questions SET ?
+      ` 
+    }
   }
+
 }
