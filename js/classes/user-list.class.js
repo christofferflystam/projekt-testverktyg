@@ -12,8 +12,6 @@ class UserList extends List {
     });
   }
 
-  
-
   static get sqlQueries(){
     return {
       readAll: `
