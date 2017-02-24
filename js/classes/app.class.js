@@ -84,10 +84,11 @@ class App {
   
             theTestView.tests[i].questions.push(questionsListFromDb[j]);
 
+
           }
         
         }
-
+        console.log(theTestView.tests[i].questions);
 
       }
 
@@ -122,6 +123,7 @@ class App {
     
     //logs to see that all data is there
     console.log('newest', testView);
+    console.log('checking length', testView.tests[0])
     
     //logs the specific name of the retrieved test
     //to make sure it got the correct test
