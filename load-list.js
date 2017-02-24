@@ -59,6 +59,7 @@ window.load = `
     testView.html
     result-page.html
     teacher-view.html
+    question.html
 
 
   js/main.js

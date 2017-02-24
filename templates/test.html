@@ -1,11 +1,46 @@
 Test.addTemplate('default', function(){return `
+  
+
+
+  <div class="page-header">
+    <h1>${this.test_name}</h1>
+  </div>
   <div class="row">
-    <div class="col-xs-12">
-      <div class="test">
-        <div>Name of test: ${this.test_name}</div>
-        <div>User ID of the user who created the test: ${this.users_user_id}</div>
-        <div>Test ID: ${this.test_id}</div>
+    <div class="col-sm-3 col-xs-12 hidden-xs side-bar">
+      <div class="side-bar-content">
+        <ul class="list-group">
+          <!--Active för mockup-purpose -->
+          <li class="list-group-item active"><a href="javascript:;">Question 1</a></li>
+          <li class="list-group-item"><a href="javascript:;">Question 2</a></li>
+          <li class="list-group-item"><a href="javascript:;">Question 3</a></li>
+          <li class="list-group-item"><a href="javascript:;">Question 4</a></li>
+          <li class="list-group-item"><a href="javascript:;">Question 5</a></li>
+          <li class="list-group-item"><a href="javascript:;">Question 6</a></li>
+          <li class="list-group-item"><a href="javascript:;">Question 7</a></li>
+          <li class="list-group-item"><a href="javascript:;">Question 8</a></li>
+        </ul>
       </div>
     </div>
+    <div class="col-sm-6 col-xs-12 question">
+      <h1>Question 1</h1>
+      ${this.questions.display()}
+
+      
+    </div>
+    
+    <div class="col-sm-3 col-xs-12 side-bar">
+      <div class="side-bar-content">
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 button-left">
+      <button type="button" class="btn">Previous</button>
+      <button type="button" class="btn">Next</button>
+    </div>
+    <div class="col-xs-6 button-right">
+      <button type="button" class="btn">Finish test</button>
+    </div>  
   </div>
 `});

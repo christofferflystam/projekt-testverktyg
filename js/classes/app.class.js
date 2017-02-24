@@ -47,6 +47,7 @@ class App {
   }
 
 
+
   //loads all tests then runs the callback function
   //to display it
   //in this example the callback keyword will be equal
@@ -56,25 +57,43 @@ class App {
     
     //creates an empty TestList
     //that will contain the Test objects
-    var listFromDb = new TestList();
-    
+    var testListFromDb = new TestList();
+    var questionsListFromDb = new QuestionList();
+
     //populates the empty TestList using
     //its readALLFromDb function
-    listFromDb.readAllFromDb(()=>{
-    console.log("Read from DB",listFromDb);
-
-
-    //playing around with only retrieving specific test
-    //before displaying it
-    var onlyfirsttest = listFromDb[0];
+    testListFromDb.readAllFromDb(()=>{
+    console.log("Read from DB",testListFromDb);
 
     //creates a TestView that takes one TestList
     //as argument
     var theTestView = new TestView({
-      tests: onlyfirsttest
+      tests: testListFromDb
     });   
 
-    console.log(theTestView);
+
+    questionsListFromDb.readAllFromDb(()=>{
+      console.log("Read from DB", questionsListFromDb);
+
+      for (let i = 0; i < theTestView.tests.length; i++){
+
+        for (let j = 0; j < questionsListFromDb.length; j++){
+
+          if(theTestView.tests[i].test_id == questionsListFromDb[j].tests_test_id){
+            console.log('Match');
+  
+            theTestView.tests[i].questions.push(questionsListFromDb[j]);
+
+          }
+        
+        }
+
+
+      }
+
+    });
+
+    console.log('last reading', theTestView);
 
     //uses the callback function that was sent
     //as an argument in this function, and then
@@ -102,12 +121,15 @@ class App {
     this.testView = testView;
     
     //logs to see that all data is there
-    console.log(testView);
+    console.log('newest', testView);
     
     //logs the specific name of the retrieved test
     //to make sure it got the correct test
-    console.log(testView.tests.test_name);
-    
+    console.log('log first test', testView.tests[0].questions);
+    console.log('log second test', testView.tests[1].questions);
+    console.log('log third test', testView.tests[2].questions);
+
+    console.log('log everything again', testView)
     //displays the HeaderFooter object in the body
     //of the document
     this.HeaderFooter.display('body');

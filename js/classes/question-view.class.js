@@ -2,7 +2,7 @@ class QuestionView extends Base {
 
   defaultPropertyValues(){
     return {
-      question: new QuestionList()
+      questions: new QuestionList()
     }
   }
 
