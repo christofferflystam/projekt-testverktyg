@@ -1,6 +1,7 @@
 class StudentList extends List {
 	constructor(items){
 		super(Student,items);
+		
 	}
 
 	readStudentsFromDb(callback){

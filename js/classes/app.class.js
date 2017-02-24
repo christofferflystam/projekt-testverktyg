@@ -14,6 +14,7 @@ class App {
 
     this.HeaderFooter.display('body');
     this.resultView.display('.content');
+    
 
   }
 }

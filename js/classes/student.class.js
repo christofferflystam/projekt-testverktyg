@@ -1,12 +1,16 @@
 class Student extends Base{
 
+defaultPropertyValues(){
+    return {
+      completedTests: new CompletedTestList()
+    }
+  }
 
 
 /*Add Array for completed tests*/
 constructor(propertyValues){
   super(propertyValues);
-  var completedTests = new CompletedTestList();
-  
+  this.completedTests = new CompletedTestList();
 }
 
 

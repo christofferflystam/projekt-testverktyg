@@ -22,6 +22,9 @@ window.load = `
     router.class.js
   
   js/classes/
+    completed-test.class.js
+    completed-test-list.class.js
+    completed-test-view.class.js
     generate-data.class.js
     completed-question.class.js
     completed-question-view.class.js
@@ -39,9 +42,7 @@ window.load = `
     answer.class.js
     answer-view.class.js
     answer-list.class.js
-    completed-test.class.js
-    completed-test-list.class.js
-    completed-test-view.class.js
+    
     
     user-list.class.js
     user-view.class.js
@@ -64,6 +65,7 @@ window.load = `
     teacher-view.html
     result-view.html
     students.html
+    completed-tests.html
 
   js/main.js
 

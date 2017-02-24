@@ -8,9 +8,10 @@ Student.addTemplate('default', function(){return `
           </h3>
         </div>
         <div class="panel-body">
-          <!-- Ladda completed tests här --> 
+          ${this.completedTests.display()}
         </div>
       </div>
     </div>
   </div>
 `});
+
