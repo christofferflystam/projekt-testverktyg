@@ -3,11 +3,12 @@
 .convert-navbar-to-footer {
 	margin: 0;
 	height: 100px;
+	margin-top: 20px;
 }
 
 .footer-content {
 	color: white;
-	padding: 2% 2%;
+	padding-top: 10px;
 	text-align: center;
 }
 
@@ -33,7 +34,9 @@
 	float: right;
 	margin-left: 2px;
 }
+
 /*RESULT-PAGE*/
+
 .dropdown-menu{
 	margin-left: 27%;
 }
