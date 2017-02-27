@@ -22,10 +22,13 @@ window.load = `
     router.class.js
   
   js/classes/
+    completed-test.class.js
+    completed-test-list.class.js
+    completed-test-view.class.js
+    load-teacher-content.class.js
     completed-question.class.js
     completed-question-view.class.js
     completed-question-list.class.js
-    
     test-list.class.js
     test.class.js
     test-view.class.js
@@ -38,27 +41,38 @@ window.load = `
     answer.class.js
     answer-view.class.js
     answer-list.class.js
-    completed-test-list.class.js
-    completed-test-view.class.js
-    completed-test.class.js
+    
+    
     user-list.class.js
     user-view.class.js
     user.class.js
     app.class.js
     header-footer.class.js
     login.class.js
-    result-page.class.js
     teacher-view.class.js
+    result-view.class.js
+    student.class.js
+    student-list.class.js
+    question-sidebar-list.class.js
+    question-sidebar.class.js
+    load-test-content.class.js
     
 
 
 
   templates/
+    test.html
     header-footer.html
     login.html
-    test-page.html
-    result-page.html
+    testView.html
     teacher-view.html
+    result-view.html
+    students.html
+    completed-tests.html
+    question.html
+    options.html
+    questionsidebar.html
+
 
   js/main.js
 

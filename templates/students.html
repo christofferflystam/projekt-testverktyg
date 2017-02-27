@@ -1,0 +1,17 @@
+Student.addTemplate('default', function(){return `
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"> 
+            <span data-click="talk">${this.first_name} ${this.last_name}</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          ${this.completedTests.display()}
+        </div>
+      </div>
+    </div>
+  </div>
+`});
+
