@@ -17,9 +17,9 @@ class App {
 
     this.HeaderFooter.display('body');
     
-    setTimeout(function() {
+    $(function() {
     resultView.display('.content');
-    }, 50); 
+    }); 
 
   }
 
@@ -40,10 +40,10 @@ class App {
     //that belongs to the HeaderFooter object
     //this starts the chain of checking templates
     //to see how it is supposed to be displayed
-    setTimeout(function() {
+    $(function() {
     this.testView = testView;
     this.testView.display('.content');
-    }, 5);
+    });
     
 
 
