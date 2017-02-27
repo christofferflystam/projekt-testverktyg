@@ -1,8 +1,8 @@
-class QuestionView extends Base {
+class QuestionSidebar extends Base {
 
   defaultPropertyValues(){
     return {
-      questions: new QuestionList()
+    	question_number: 0
     }
   }
 

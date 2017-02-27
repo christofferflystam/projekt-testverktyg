@@ -30,6 +30,9 @@ window.load = `
     completed-question-view.class.js
     completed-question-list.class.js
     
+    completed-questions.class.js
+    completed-questions-view.class.js
+    completed-questions-list.class.js
     test-list.class.js
     test.class.js
     test-view.class.js
@@ -54,18 +57,28 @@ window.load = `
     result-view.class.js
     student.class.js
     student-list.class.js
+    question-sidebar-list.class.js
+    question-sidebar.class.js
+    load-test-content.class.js
     
 
 
 
   templates/
+    test.html
     header-footer.html
     login.html
     test-page.html
+    testView.html
+    result-page.html
     teacher-view.html
     result-view.html
     students.html
     completed-tests.html
+    question.html
+    options.html
+    questionsidebar.html
+
 
   js/main.js
 
