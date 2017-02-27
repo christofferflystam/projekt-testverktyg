@@ -42,7 +42,7 @@ class App {
     //with a callback to the "start" function
     //which in turn uses the TestView created from the
     //first function
-    new loadTestContent((testView)=>{
+    new LoadTestContent((testView)=>{
       this.startTest(testView);
     })
 

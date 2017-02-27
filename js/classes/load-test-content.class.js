@@ -1,4 +1,4 @@
-class loadTestContent extends Base{
+class LoadTestContent extends Base{
 
 
   constructor(callback){
