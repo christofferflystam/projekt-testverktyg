@@ -1,8 +1,8 @@
-class TestView extends Base {
+class QuestionSidebar extends Base {
 
   defaultPropertyValues(){
     return {
-      tests: new TestList(),
+    	question_number: 0
     }
   }
 

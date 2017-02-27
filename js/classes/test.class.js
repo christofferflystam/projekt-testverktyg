@@ -5,7 +5,8 @@ class Test extends Base{
       test_id: 0,
       test_name: 'standard',
       users_user_id: 0,
-      questions: new QuestionList()
+      questions: new QuestionList(),
+      sidebaritems: new QuestionSidebarList()
     }
   }
 

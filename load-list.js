@@ -48,6 +48,9 @@ window.load = `
     login.class.js
     result-page.class.js
     teacher-view.class.js
+    question-sidebar-list.class.js
+    question-sidebar.class.js
+    load-test-content.class.js
     
 
 
@@ -61,6 +64,7 @@ window.load = `
     teacher-view.html
     question.html
     options.html
+    questionsidebar.html
 
 
   js/main.js
