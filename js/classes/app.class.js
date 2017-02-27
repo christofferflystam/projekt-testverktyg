@@ -1,12 +1,12 @@
 class App {
 
   constructor(){
-    new GenerateData((resultView)=>{
-      this.start(resultView);
+    new LoadTeacherContent((resultView)=>{
+      this.startTeacher(resultView);
     });
   }
 
-  start(resultView){
+  startTeacher(resultView){
     this.HeaderFooter = new HeaderFooter();
 
     console.log(resultView);

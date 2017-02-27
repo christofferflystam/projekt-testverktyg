@@ -1,4 +1,4 @@
-class GenerateData extends Base{
+class LoadTeacherContent extends Base{
 
   constructor(callback){
     super();

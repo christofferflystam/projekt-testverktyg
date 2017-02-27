@@ -25,7 +25,7 @@ window.load = `
     completed-test.class.js
     completed-test-list.class.js
     completed-test-view.class.js
-    generate-data.class.js
+    load-teacher-content.class.js
     completed-question.class.js
     completed-question-view.class.js
     completed-question-list.class.js
