@@ -4,8 +4,8 @@ static defaultPropertyValues(){
     return {
       question_id: 0,
       question_text: 'standard',
-      tests_test_id: 0
-      
+      tests_test_id: 0,
+      options: new OptionList()
     }
   }
 
@@ -13,7 +13,7 @@ static defaultPropertyValues(){
 /*Add Array for completed tests*/
 constructor(propertyValues){
   super(propertyValues);
-  
+  this.options = new OptionList();
 }
 
 

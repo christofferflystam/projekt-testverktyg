@@ -1,3 +1,4 @@
 Question.addTemplate('default', function(){return `
-    <div>${this.question_text}</div>  
+    <div>${this.question_text}</div>
+    <div>${this.options.display()}</div>  
   `});

@@ -59,6 +59,7 @@ class App {
     //that will contain the Test objects
     var testListFromDb = new TestList();
     var questionsListFromDb = new QuestionList();
+    var optionsListFromDb = new OptionList();
 
     //populates the empty TestList using
     //its readALLFromDb function
@@ -72,12 +73,29 @@ class App {
     });   
 
 
+    optionsListFromDb.readAllFromDb();
+
+    console.log('did i get options', optionsListFromDb);
+
     questionsListFromDb.readAllFromDb(()=>{
       console.log("Read from DB", questionsListFromDb);
+
+      for (let j = 0; j < questionsListFromDb.length; j++){
+
+        for (let i = 0; i < optionsListFromDb.length; i++){
+          if(questionsListFromDb[j].question_id == optionsListFromDb[i].questions_question_id){
+            questionsListFromDb[j].options.push(optionsListFromDb[i]);
+          }
+        }
+      }
+
+      
 
       for (let i = 0; i < theTestView.tests.length; i++){
 
         for (let j = 0; j < questionsListFromDb.length; j++){
+
+
 
           if(theTestView.tests[i].test_id == questionsListFromDb[j].tests_test_id){
             console.log('Match');
@@ -85,7 +103,9 @@ class App {
             theTestView.tests[i].questions.push(questionsListFromDb[j]);
 
 
+
           }
+
         
         }
         console.log(theTestView.tests[i].questions);
@@ -125,9 +145,7 @@ class App {
     //logs to see that all data is there
     console.log('newest', testView);
     console.log('checking length', testView.tests[0])
-    
-    //logs the specific name of the retrieved test
-    //to make sure it got the correct test
+
     console.log('log first test', testView.tests[0].questions);
     console.log('log second test', testView.tests[1].questions);
     console.log('log third test', testView.tests[2].questions);
@@ -142,7 +160,8 @@ class App {
     //this starts the chain of checking templates
     //to see how it is supposed to be displayed
     setTimeout(function() {
-    testView.display('.content');
+    this.testView = testView;
+    this.testView.display('.content');
     }, 5);
     
 

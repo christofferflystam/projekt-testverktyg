@@ -1,7 +1,9 @@
 TestView.addTemplate('default', function(){return `
 
 
-<div>${this.tests[0].display()}</div>
+<div>${this.tests.display()}
+${this.tests.test_name}
+</div>
 
 
 `});

@@ -60,6 +60,7 @@ window.load = `
     result-page.html
     teacher-view.html
     question.html
+    options.html
 
 
   js/main.js
