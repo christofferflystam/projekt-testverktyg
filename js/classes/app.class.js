@@ -8,13 +8,17 @@ class App {
 
   start(resultView){
     this.HeaderFooter = new HeaderFooter();
-    this.resultView = resultView;
 
     console.log(resultView);
 
     this.HeaderFooter.display('body');
-    this.resultView.display('.content');
     
+    //Without this all content wont load on time
+    setTimeout(function() {
+    resultView.display('.content');
+    }, 50);
+
+
 
   }
 }
