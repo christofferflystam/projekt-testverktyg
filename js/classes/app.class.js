@@ -8,10 +8,13 @@ class App {
     // new LoadTestContent((testView)=>{
     //   this.startTest(testView);
     // });
-       new LoadStudentContent((studentView)=>{
+       
+      new LoadStudentContent((studentView)=>{
         this.startStudentView(studentView);
-       });
+      });
+
   }
+
   startStudentView(studentView){
     this.HeaderFooter = new HeaderFooter();
 
