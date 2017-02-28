@@ -56,7 +56,10 @@ window.load = `
     question-sidebar-list.class.js
     question-sidebar.class.js
     load-test-content.class.js
-    
+    load-student-content.class.js
+    student-view.class.js
+    available-test.class.js
+    available-test-list.class.js
 
 
 
@@ -72,7 +75,8 @@ window.load = `
     question.html
     options.html
     questionsidebar.html
-
+    student-view.html
+    available-tests.html
 
   js/main.js
 

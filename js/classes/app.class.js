@@ -5,9 +5,23 @@ class App {
     //   this.startTeacher(resultView);
     // });
 
-    new LoadTestContent((testView)=>{
-      this.startTest(testView);
-    });
+    // new LoadTestContent((testView)=>{
+    //   this.startTest(testView);
+    // });
+       new LoadStudentContent((studentView)=>{
+        this.startStudentView(studentView);
+       });
+  }
+  startStudentView(studentView){
+    this.HeaderFooter = new HeaderFooter();
+
+    console.log(studentView);
+
+    this.HeaderFooter.display('body');
+    
+    setTimeout(function() {
+    studentView.display('.content');
+    }, 50); 
   }
 
   startTeacher(resultView){

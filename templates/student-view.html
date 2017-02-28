@@ -1,0 +1,26 @@
+StudentView.addTemplate('default', function(){return `
+
+
+<div class="page-header">
+<h1>${this.title}</h1>
+<p>${this.information}</p>
+</div>
+${this.students[0].display()}
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"> 
+            <span>${this.AvailableTestsSpan}</span>
+          </h3>
+        </div>
+        <div class="panel-body">
+        ${this.availableTestList.display()}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+`});
