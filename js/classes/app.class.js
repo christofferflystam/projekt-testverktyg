@@ -1,14 +1,16 @@
 class App {
 
   constructor(){
-    // new LoadTeacherContent((resultView)=>{
-    //   this.startTeacher(resultView);
-    // });
-
-    new LoadTestContent((testView)=>{
-      this.startTest(testView);
+    new LoadTeacherContent((resultView)=>{
+       this.startTeacher(resultView);
     });
+
+    //new LoadTestContent((testView)=>{
+    //  this.startTest(testView);
+    //});
   }
+
+  
 
   startTeacher(resultView){
     this.HeaderFooter = new HeaderFooter();
@@ -17,9 +19,11 @@ class App {
 
     this.HeaderFooter.display('body');
     
-    setTimeout(function() {
-    resultView.display('.content');
-    }, 50); 
+    setTimeout(function(){
+        this.resultView = resultView;
+
+        this.resultView.display('.content');
+    }, 5); 
 
   }
 

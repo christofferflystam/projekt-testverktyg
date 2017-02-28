@@ -40,3 +40,21 @@
 .dropdown-menu{
 	margin-left: 27%;
 }
+
+@media (max-width: 339px) and (orientation: portrait){
+	.col-xs-6 #NextButton{
+		margin-top: 2.5%;
+	}
+}
+
+@media (max-width: 201px) and (orientation: portrait){
+	.col-xs-6 #FinishButton, .col-xs-6 #PreviousButton, .col-xs-6 #NextButton{
+		font-size: 10px;
+	}
+}
+
+@media (max-width: 167px) and (orientation: portrait){
+	.col-xs-6 #FinishButton, .col-xs-6 #PreviousButton, .col-xs-6 #NextButton{
+		font-size: 7px;
+	}
+}
