@@ -48,11 +48,12 @@ class App {
   login(loginView){
 
     this.HeaderFooter = new HeaderFooter();
-
+    this.HeaderFooter.user = loginView.users[something];
     this.HeaderFooter.display('body');
 
     $(function(){
       loginView.display('.content');
+      console.log(loginView);
     });
 
   }
