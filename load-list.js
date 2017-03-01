@@ -51,7 +51,6 @@ window.load = `
     user.class.js
     app.class.js
     header-footer.class.js
-    login.class.js
     teacher-view.class.js
     result-view.class.js
     student.class.js
@@ -60,6 +59,7 @@ window.load = `
     question-sidebar.class.js
     load-test-content.class.js
     load-student-content.class.js
+    load-login-content.class.js
     student-view.class.js
     available-test.class.js
     available-test-list.class.js

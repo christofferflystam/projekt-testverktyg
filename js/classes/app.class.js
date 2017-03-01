@@ -1,14 +1,18 @@
 class App {
 
   constructor(){
-    new LoadTeacherContent((resultView)=>{
-      this.startTeacher(resultView);
+    new LoadLoginContent((loginView)=>{
+      this.login(loginView);
     });
+
+    // new LoadTeacherContent((resultView)=>{
+    //   this.startTeacher(resultView);
+    // });
 
     // new LoadTestContent((testView)=>{
     //   this.startTest(testView);
     // });
-       
+
     // new LoadStudentContent((studentView)=>{
     //   this.startStudentView(studentView);
     // });
@@ -23,9 +27,8 @@ class App {
     this.HeaderFooter.display('body');
     
     $(function() {
-    studentView.display('.content');
-    }); 
-    this.loadUsersFromDb(this.login);
+      studentView.display('.content');
+    });   
     
   }
 
@@ -33,34 +36,30 @@ class App {
     this.HeaderFooter = new HeaderFooter();
 
     console.log(resultView);
- loadUsersFromDb(callback){
-    this.callback = callback;
 
     this.HeaderFooter.display('body');
     
     $(function() {
-    resultView.display('.content');
+      resultView.display('.content');
     }); 
-    var usersFromDb = new UserList();
+    
+  }
 
-    usersFromDb.readAllFromDb(()=>{
-        console.log("Read users from DB: " , usersFromDb);
+  login(loginView){
 
-        var theLoginView = new LoginView({
-            users: usersFromDb 
-        });
+    this.HeaderFooter = new HeaderFooter();
 
-        this.callback(theLoginView);
+    this.HeaderFooter.display('body');
+
+    $(function(){
+      loginView.display('.content');
     });
- }
-
-    login(loginView){
 
   }
-        this.HeaderFooter = new HeaderFooter();
+
 
   startTest(testView){
-    
+
     //creates a HeaderFooter object
     this.HeaderFooter = new HeaderFooter();
     
@@ -77,18 +76,9 @@ class App {
     //this starts the chain of checking templates
     //to see how it is supposed to be displayed
     $(function() {
-    this.testView = testView;
-    this.testView.display('.content');
+      testView.display('.content');
     });
-    
-        this.loginView = loginView;
-
-        this.HeaderFooter.display('body');
-
 
   }
 
-
-        this.loginView.display('.content');
-    }
 }

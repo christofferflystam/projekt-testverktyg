@@ -1,3 +1,9 @@
+/*MAIN CONTENT*/
+.content {
+	/*Needs testing*/
+	min-height: 80vh;
+}
+
 /*FOOTER*/
 
 .convert-navbar-to-footer {
@@ -14,15 +20,7 @@
 
 /*LOGIN*/
 
-.complete-login-form{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  
-  /* The translate value for transform is based off the size of the element, 
-  so that will center nicely. */
-  transform: translate(-50%, -50%);
-}
+
 
 /*TEST-PAGE*/
 
