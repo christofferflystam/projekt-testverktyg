@@ -1,17 +1,17 @@
 class App {
 
   constructor(){
-    // new LoadTeacherContent((resultView)=>{
-    //   this.startTeacher(resultView);
-    // });
+    new LoadTeacherContent((resultView)=>{
+      this.startTeacher(resultView);
+    });
 
     // new LoadTestContent((testView)=>{
     //   this.startTest(testView);
     // });
        
-      new LoadStudentContent((studentView)=>{
-        this.startStudentView(studentView);
-      });
+    // new LoadStudentContent((studentView)=>{
+    //   this.startStudentView(studentView);
+    // });
 
   }
 
@@ -22,9 +22,9 @@ class App {
 
     this.HeaderFooter.display('body');
     
-    setTimeout(function() {
+    $(function() {
     studentView.display('.content');
-    }, 50); 
+    }); 
   }
 
   startTeacher(resultView){
@@ -34,9 +34,9 @@ class App {
 
     this.HeaderFooter.display('body');
     
-    setTimeout(function() {
+    $(function() {
     resultView.display('.content');
-    }, 50); 
+    }); 
 
   }
 
@@ -57,10 +57,10 @@ class App {
     //that belongs to the HeaderFooter object
     //this starts the chain of checking templates
     //to see how it is supposed to be displayed
-    setTimeout(function() {
+    $(function() {
     this.testView = testView;
     this.testView.display('.content');
-    }, 5);
+    });
     
 
 
