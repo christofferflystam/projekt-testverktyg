@@ -45,10 +45,11 @@ window.load = `
     
     user-list.class.js
     user-view.class.js
+    user.class.js
     login.class.js
     login-view.class.js
     login-list.class.js
-    user.class.js
+    
     app.class.js
     header-footer.class.js
     teacher-view.class.js
@@ -80,6 +81,7 @@ window.load = `
     questionsidebar.html
     student-view.html
     available-tests.html
+    user.html
 
   js/main.js
 

@@ -2,12 +2,16 @@ class LoginView extends Base {
 
   defaultPropertyValues(){
     return {
-      users: new UserList()
+      users: new UserList(),
+
     }
   }
 
   constructor(propertyValues = {}){
     super(propertyValues);
+    this.indexOfUser = 0;
+    this.HeaderFooter = new HeaderFooter();
+
   }
 
   checkIt(){
@@ -35,8 +39,10 @@ class LoginView extends Base {
 				count2 += 1; /* One user has been checked, move up in the order */
 				if(username === true && pw === true){
 					alert("Access Granted, Welcome " + inputEmail + "."); /*Welcome the user */
-					
-					
+					this.indexOfUser = count1;
+					this.HeaderFooter.user = this.users[this.indexOfUser];
+					console.log('new thing', this.indexOfUser);
+					console.log('things', this.HeaderFooter);
 					access = true; /* Do not display the fail screen */
 					nextPage(count1); /* Move to next screen and set index for what user is current */
 				}

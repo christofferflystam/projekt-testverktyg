@@ -8,6 +8,7 @@ class UserList extends List {
   readAllFromDb(callback){
     this.db.readAll((data)=>{
       this.push.apply(this,data);
+      console.log('UserList', this);
       callback();
     });
   }

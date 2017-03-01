@@ -9,9 +9,9 @@ class App {
     //   this.startTeacher(resultView);
     // });
 
-    // new LoadTestContent((testView)=>{
-    //   this.startTest(testView);
-    // });
+    /* new LoadTestContent((testView)=>{
+       this.startTest(testView);
+     });*/
 
     // new LoadStudentContent((studentView)=>{
     //   this.startStudentView(studentView);
@@ -47,8 +47,10 @@ class App {
 
   login(loginView){
 
-    this.HeaderFooter = new HeaderFooter();
-    this.HeaderFooter.user = loginView.users[something];
+    this.HeaderFooter = loginView.HeaderFooter;
+    console.log('blargh', this.HeaderFooter);
+
+
     this.HeaderFooter.display('body');
 
     $(function(){
