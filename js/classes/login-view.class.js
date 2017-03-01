@@ -9,6 +9,7 @@ class LoginView extends Base {
   constructor(propertyValues = {}){
     super(propertyValues);
     var roleCheckLogin = '';
+    
   }
 
   checkIt(){
@@ -40,12 +41,11 @@ class LoginView extends Base {
 					alert("Access Granted, Welcome " + inputEmail + "."); /*Welcome the user */
 					
 					/*Sets current user id to logged in user*/
-					console.log('Ursprungsvärde: ', App.currentUserId);
 					updateUserId(key);
-					console.log('Nytt värde: ', App.currentUserId);
+					
 					
 					access = true; /* Do not display the fail screen */
-					this.roleCheckLogin = '/' + this.users[App.currentUserId].role;
+					this.roleCheckLogin = '/' + this.users[sessionStorage.user_id].role;
 					console.log(this.roleCheckLogin);
 					nextPage(this.roleCheckLogin); /* Move to next screen and set index for what user is current */
 				}
@@ -83,5 +83,4 @@ function nextPage(href){
 
 function updateUserId(key) {
 	sessionStorage.user_id = key;
-	App.currentUserId = key;
 }

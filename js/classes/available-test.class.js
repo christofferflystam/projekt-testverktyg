@@ -10,6 +10,6 @@ class AvailableTest extends Base {
 
 		console.log('Vilket id klickade jag på? ', this.test_id);
 
-		App.currentTestId = this.test_id;
+		sessionStorage.test_id = this.test_id;
 	}
 }

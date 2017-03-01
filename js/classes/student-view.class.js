@@ -13,7 +13,12 @@ class StudentView extends Base {
     	this.information = 'You can choose a test or see result from an old test';
     	this.compledtedTestsSpan = 'Completed Tests';
     	this.AvailableTestsSpan = 'Available Tests';
+    	
 	}
+
+
+
+
 
 
 }

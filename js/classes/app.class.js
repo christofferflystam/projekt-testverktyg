@@ -1,11 +1,8 @@
 class App {
 
-  /*Sorry about all the statics :´(*/
+  
 
   constructor(){
-    /*Numbers that will update based on login and wich test is clicked*/
-    App.currentUserId = 0;
-    App.currentTestId = 0;
 
     new Router({
       "/": function(){

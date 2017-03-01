@@ -1,5 +1,5 @@
 TestView.addTemplate('default', function(){return `
 <div>
-	${this.tests[App.currentTestId].display()}
+	${this.tests[sessionStorage.test_id].display()}
 </div>
 `});
