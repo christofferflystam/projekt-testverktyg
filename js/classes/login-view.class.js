@@ -8,6 +8,7 @@ class LoginView extends Base {
 
   constructor(propertyValues = {}){
     super(propertyValues);
+    var roleCheckLogin = '';
   }
 
   checkIt(){
@@ -44,7 +45,9 @@ class LoginView extends Base {
 					console.log('Nytt värde: ', App.currentUserId);
 					
 					access = true; /* Do not display the fail screen */
-					nextPage(count1); /* Move to next screen and set index for what user is current */
+					this.roleCheckLogin = '/' + this.users[App.currentUserId].role;
+					console.log(this.roleCheckLogin);
+					nextPage(this.roleCheckLogin); /* Move to next screen and set index for what user is current */
 				}
 				if(count2 === 3){
 					username = false;
@@ -73,11 +76,12 @@ class LoginView extends Base {
 
 }
 
-function nextPage(number){
-	something = number; /* The index of the current logged in user to access */
-	/* Activate Routing here */
+function nextPage(href){
+	console.log(href);
+	document.location.href = href;	
 }
 
 function updateUserId(key) {
+	sessionStorage.user_id = key;
 	App.currentUserId = key;
 }
