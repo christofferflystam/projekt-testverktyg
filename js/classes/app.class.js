@@ -25,20 +25,39 @@ class App {
     $(function() {
     studentView.display('.content');
     }); 
+    this.loadUsersFromDb(this.login);
+    
   }
 
   startTeacher(resultView){
     this.HeaderFooter = new HeaderFooter();
 
     console.log(resultView);
+ loadUsersFromDb(callback){
+    this.callback = callback;
 
     this.HeaderFooter.display('body');
     
     $(function() {
     resultView.display('.content');
     }); 
+    var usersFromDb = new UserList();
+
+    usersFromDb.readAllFromDb(()=>{
+        console.log("Read users from DB: " , usersFromDb);
+
+        var theLoginView = new LoginView({
+            users: usersFromDb 
+        });
+
+        this.callback(theLoginView);
+    });
+ }
+
+    login(loginView){
 
   }
+        this.HeaderFooter = new HeaderFooter();
 
   startTest(testView){
     
@@ -62,9 +81,14 @@ class App {
     this.testView.display('.content');
     });
     
+        this.loginView = loginView;
+
+        this.HeaderFooter.display('body');
 
 
   }
 
 
+        this.loginView.display('.content');
+    }
 }

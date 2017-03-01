@@ -45,6 +45,9 @@ window.load = `
     
     user-list.class.js
     user-view.class.js
+    login.class.js
+    login-view.class.js
+    login-list.class.js
     user.class.js
     app.class.js
     header-footer.class.js
