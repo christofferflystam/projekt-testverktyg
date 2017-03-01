@@ -1,10 +1,5 @@
-//viewing specific test below for testing purposes
-
 TestView.addTemplate('default', function(){return `
-
-
-<div>${this.tests[1].display()}
+<div>
+	${this.tests[App.currentTestId].display()}
 </div>
-
-
 `});

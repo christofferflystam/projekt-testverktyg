@@ -11,6 +11,8 @@ class LoginView extends Base {
   }
 
   checkIt(){
+  		
+
 		let count1 = 0;
 
 		let username = false;
@@ -25,7 +27,7 @@ class LoginView extends Base {
 			
 			for (var second in this.users[key]){
 				let something = this.users[key][second]; /* Current active element from the database query list, iterating over User attributes */
-			
+
 				if (inputEmail === something && count2 === 1){
 					username = true;
 				}
@@ -36,6 +38,10 @@ class LoginView extends Base {
 				if(username === true && pw === true){
 					alert("Access Granted, Welcome " + inputEmail + "."); /*Welcome the user */
 					
+					/*Sets current user id to logged in user*/
+					console.log('Ursprungsvärde: ', App.currentUserId);
+					updateUserId(key);
+					console.log('Nytt värde: ', App.currentUserId);
 					
 					access = true; /* Do not display the fail screen */
 					nextPage(count1); /* Move to next screen and set index for what user is current */
@@ -63,6 +69,8 @@ class LoginView extends Base {
 		(document.getElementById('inputPassword').value) = "";
 	}
 
+	
+
 }
 
 function nextPage(number){
@@ -70,4 +78,6 @@ function nextPage(number){
 	/* Activate Routing here */
 }
 
-let something; /* Use to access what name to gain from the DB list of stuff */
+function updateUserId(key) {
+	App.currentUserId = key;
+}

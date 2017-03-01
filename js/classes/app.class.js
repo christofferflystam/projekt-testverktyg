@@ -1,9 +1,38 @@
 class App {
 
+  /*Sorry about all the statics :´(*/
+
   constructor(){
-    new LoadLoginContent((loginView)=>{
-      this.login(loginView);
+    /*Numbers that will update based on login and wich test is clicked*/
+    App.currentUserId = 0;
+    App.currentTestId = 0;
+
+    new Router({
+      "/": function(){
+        new LoadLoginContent((loginView)=>{
+          App.login(loginView);
+        });
+      },
+      "/teacher": function(){
+        new LoadTeacherContent((resultView)=>{
+          App.startTeacher(resultView);
+        });
+      },
+      "/student": function(){
+        new LoadStudentContent((studentView)=>{
+          App.startStudentView(studentView);
+        });
+      },
+      "/test": function(){
+        new LoadTestContent((testView)=>{
+          App.startTest(testView);
+        });
+      }
     });
+
+    // new LoadLoginContent((loginView)=>{
+    //   this.login(loginView);
+    // });
 
     // new LoadTeacherContent((resultView)=>{
     //   this.startTeacher(resultView);
@@ -19,7 +48,8 @@ class App {
 
   }
 
-  startStudentView(studentView){
+  static startStudentView(studentView){
+    $('body').empty();
     this.HeaderFooter = new HeaderFooter();
 
     console.log(studentView);
@@ -32,7 +62,8 @@ class App {
     
   }
 
-  startTeacher(resultView){
+  static startTeacher(resultView){
+    $('body').empty();
     this.HeaderFooter = new HeaderFooter();
 
     console.log(resultView);
@@ -45,7 +76,7 @@ class App {
     
   }
 
-  login(loginView){
+  static login(loginView){
 
     this.HeaderFooter = new HeaderFooter();
 
@@ -58,8 +89,8 @@ class App {
   }
 
 
-  startTest(testView){
-
+  static startTest(testView){
+    $('body').empty();
     //creates a HeaderFooter object
     this.HeaderFooter = new HeaderFooter();
     
