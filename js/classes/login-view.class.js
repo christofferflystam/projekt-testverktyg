@@ -58,11 +58,6 @@ class LoginView extends Base {
 		}
 	}
 
-	clearIt(){ /* Function related to the cancel button */
-		(document.getElementById('inputEmail').value) = "";
-		(document.getElementById('inputPassword').value) = "";
-	}
-
 }
 
 function nextPage(number){
