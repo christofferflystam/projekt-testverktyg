@@ -27,22 +27,6 @@ class App {
       }
     });
 
-    // new LoadLoginContent((loginView)=>{
-    //   this.login(loginView);
-    // });
-
-    // new LoadTeacherContent((resultView)=>{
-    //   this.startTeacher(resultView);
-    // });
-
-    // new LoadTestContent((testView)=>{
-    //   this.startTest(testView);
-    // });
-
-    // new LoadStudentContent((studentView)=>{
-    //   this.startStudentView(studentView);
-    // });
-
   }
 
   static startStudentView(studentView){
@@ -75,12 +59,12 @@ class App {
 
   static login(loginView){
 
-    this.HeaderFooter = new HeaderFooter();
+    // this.HeaderFooter = new HeaderFooter();
 
-    this.HeaderFooter.display('body');
+    // this.HeaderFooter.display('body');
 
     $(function(){
-      loginView.display('.content');
+      loginView.display('body');
     });
 
   }
