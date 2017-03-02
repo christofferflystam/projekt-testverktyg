@@ -2,7 +2,8 @@ class LoginView extends Base {
 
   defaultPropertyValues(){
     return {
-      users: new UserList()
+      users: new UserList(),
+
     }
   }
 
@@ -10,6 +11,9 @@ class LoginView extends Base {
     super(propertyValues);
     var roleCheckLogin = '';
     
+    this.indexOfUser = 0;
+    this.HeaderFooter = new HeaderFooter();
+
   }
 
   checkIt(){
@@ -44,6 +48,10 @@ class LoginView extends Base {
 					updateUserId(key);
 					
 					
+					this.indexOfUser = count1;
+					this.HeaderFooter.user = this.users[this.indexOfUser];
+					console.log('new thing', this.indexOfUser);
+					console.log('things', this.HeaderFooter);
 					access = true; /* Do not display the fail screen */
 					this.roleCheckLogin = '/' + this.users[sessionStorage.user_id].role;
 					console.log(this.roleCheckLogin);

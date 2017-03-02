@@ -19,7 +19,7 @@ HeaderFooter.addTemplate('default', function(){return `
         <li><a>Test</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a>Logged in as: <span>username</span></a></li>
+        <li id = loggin><a>Logged in as: <span>${this.user.first_name}</span></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
