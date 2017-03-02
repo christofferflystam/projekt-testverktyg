@@ -45,6 +45,7 @@ class LoginView extends Base {
 					console.log('things', this.HeaderFooter);
 					access = true; /* Do not display the fail screen */
 					nextPage(count1); /* Move to next screen and set index for what user is current */
+					$("#loggin").show();
 				}
 				if(count2 === 3){
 					username = false;

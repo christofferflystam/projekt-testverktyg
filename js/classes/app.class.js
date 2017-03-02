@@ -3,6 +3,7 @@ class App {
   constructor(){
     new LoadLoginContent((loginView)=>{
       this.login(loginView);
+      $("#loggin").hide();
     });
 
     // new LoadTeacherContent((resultView)=>{
