@@ -5,7 +5,7 @@ StudentView.addTemplate('default', function(){return `
 <h1>${this.title}</h1>
 <p>${this.information}</p>
 </div>
-${this.students[0].display()}
+${this.students[sessionStorage.indexOfCurrentlyLoggedInStudent].display()}
   <div class="row">
     <div class="col-xs-12">
       <div class="panel panel-primary">
