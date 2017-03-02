@@ -1,16 +1,19 @@
 LoginView.addTemplate('default', function(){return `
 
 
-<div class ="container">
+<div class ="login">
+<div class="page-header">
+  <h1 class="text-center">Welcome, please log in to continue</h1>
+</div>
   <div class="row">
-    <div class="col-sm-10" align="center"</div>
+    <div class="col-sm-12" align="center"</div>
       <label for="inputEmail">Email</label>
       <input type="text" class="form-control" id="inputEmail" placeholder="Email">
     </div>
   </div>
 
   <div class="row">
-    <div class="col-sm-10" align="center"</div>
+    <div class="col-sm-12" align="center"</div>
       <label for="inputPassword">Password</label>
       <input type="password" class="form-control" id="inputPassword" placeholder="Password">
     </div>
@@ -19,8 +22,8 @@ LoginView.addTemplate('default', function(){return `
   <div class="control-group">
   <div class="controls">
   <div class="row">
-    <div class="col-sm-10"></div>
-      <button id="clickMe" type="button" class="btn" data-click="checkIt">Sign in</button>
+    <div class="col-sm-12">
+      <button id="clickMe" type="button" class="btn-primary" data-click="checkIt">Sign in</button>
     </div>
 </div>
 </div>
