@@ -58,3 +58,113 @@
 .dropdown-menu{
 	margin-left: 27%;
 }
+
+
+/*IPHONE-VIEW*/
+@media only screen 
+  and (max-device-width: 376px) 
+  and (max-device-width: 668px) 
+  and (orientation: portrait){
+  	/*Result view*/
+.panel-title{
+	font-size: 20px;
+}
+.well{
+	font-size: 18px;
+}
+	/*Student view*/
+p{
+	font-size: 17px;
+}
+a{
+	font-size: 18px;
+}
+/*Test Results*/
+.panel-heading .panel-title{
+	font-size:20px;
+}
+/*Footer Content*/
+.footer-content{
+	font-size:18px;
+}
+/*Navbar Content*/
+.navbar-header .navbar-brand{
+	font-size: 24px;
+}
+}
+
+/*IPAD-VIEW*/
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait){
+.content {
+	min-height: 82vh;
+}
+.panel-title{
+	font-size: 24px;
+}
+.well{
+	font-size: 22px;
+}
+	/*Student view*/
+p{
+	font-size: 20px;
+}
+a{
+	font-size: 22px;
+}
+/*Test Results*/
+.panel-heading .panel-title{
+	font-size:24px;
+}
+/*Footer Content*/
+.footer-content{
+	font-size:16px;
+}
+/*Navbar Content*/
+.navbar-header .navbar-brand{
+	font-size: 28px;
+}
+
+}
+/* Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape){
+.panel-title{
+	font-size: 24px;
+}
+.well{
+	font-size: 22px;
+}
+	/*Student view*/
+p{
+	font-size: 20px;
+}
+a{
+	font-size: 22px;
+}
+/*Test Results*/
+.panel-heading .panel-title{
+	font-size:24px;
+}
+/*Footer Content*/
+.footer-content{
+	font-size:20px;
+}
+/*Navbar Content*/
+.navbar-header .navbar-brand{
+	font-size: 28px;
+}
+
+
+
+
+
+
+
+}
+
+
