@@ -1,7 +1,7 @@
 QuestionSidebar.addTemplate('default', function(){return `
 
 
-<li class="list-group-item"><a href="javascript:;">Question ${this.question_number}</a></li>
+<li class="list-group-item" id=question-sidebaritem_${this.question_number} data-click="changeActive"><a href="javascript:;">Question ${this.question_number}</a></li>
 
 
 `});

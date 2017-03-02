@@ -29,8 +29,8 @@ window.load = `
     completed-question.class.js
     completed-question-view.class.js
     completed-question-list.class.js
-    test-list.class.js
     test.class.js
+    test-list.class.js
     test-view.class.js
     question.class.js
     question-view.class.js
