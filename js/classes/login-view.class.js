@@ -50,8 +50,9 @@ class LoginView extends Base {
 					
 					this.indexOfUser = count1;
 					this.HeaderFooter.user = this.users[this.indexOfUser];
-					console.log('new thing', this.indexOfUser);
-					console.log('things', this.HeaderFooter);
+					
+					/*Stores name of logged in user to display in header*/
+					sessionStorage.loggedInName = this.HeaderFooter.user.first_name + ' ' + this.HeaderFooter.user.last_name;
 					access = true; /* Do not display the fail screen */
 					this.roleCheckLogin = '/' + this.users[sessionStorage.user_id].role;
 					console.log(this.roleCheckLogin);
