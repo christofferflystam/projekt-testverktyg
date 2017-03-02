@@ -43,6 +43,16 @@ class App {
     $(function() {
     this.testView = testView;
     this.testView.display('.content');
+
+    $('li[id=question-sidebaritem_1]').removeClass("list-group-item").addClass("list-group-item active");
+
+    for(let i = 1; i <= document.querySelectorAll(".question-item").length; i++){
+
+      $('div[id=question-item_' + i +']').addClass("hidden");
+    }
+
+    $('div[id=question-item_1]').removeClass("hidden");
+
     });
     
 

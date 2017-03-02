@@ -12,14 +12,21 @@ class QuestionSidebar extends Base {
 
 
   changeActive(){
-	  	this.clickedQuestion = (document.getElementById('question_'+this.question_number));
-	  	console.log('which question did I click?', this.clickedQuestion);
-	  	$(function() {
-    		console.log('what is this1', this.clickedQuestion);
-    	}); 
-    	console.log('what is this', this);
-	  	this.clickedQuestion.removeClass('list-group-item');
-	
+
+  	for(let i = 1; i <= document.querySelectorAll(".list-group-item").length; i++){
+  		$('li[id=question-sidebaritem_' + i +']').removeClass("list-group-item active").addClass("list-group-item");
+
+  	}
+
+  	for(let i = 1; i <= document.querySelectorAll(".question-item").length; i++){
+
+  		$('div[id=question-item_' + i +']').addClass("hidden");
+  	}
+
+  	$('li[id=question-sidebaritem_' + this.question_number +']').removeClass("list-group-item").addClass("list-group-item active");
+
+  	$('div[id=question-item_' + this.question_number +']').removeClass("hidden");
+
   }
 
 }
