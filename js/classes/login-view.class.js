@@ -8,6 +8,7 @@ class LoginView extends Base {
 
   constructor(propertyValues = {}){
     super(propertyValues);
+
   }
 
   checkIt(){
@@ -35,7 +36,7 @@ class LoginView extends Base {
 				count2 += 1; /* One user has been checked, move up in the order */
 				if(username === true && pw === true){
 					alert("Access Granted, Welcome " + inputEmail + "."); /*Welcome the user */
-					
+					console.log("This is users in login-view: ", this.users);
 					
 					access = true; /* Do not display the fail screen */
 					nextPage(count1); /* Move to next screen and set index for what user is current */

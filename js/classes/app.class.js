@@ -1,13 +1,15 @@
 class App {
 
   constructor(){
-    new LoadLoginContent((loginView)=>{
-      this.login(loginView);
-    });
+    //new LoadLoginContent((loginView)=>{
+    //  this.login(loginView);
+    //});
 
-    // new LoadTeacherContent((resultView)=>{
-    //   this.startTeacher(resultView);
-    // });
+
+
+     new LoadTeacherContent((resultView)=>{
+       this.startTeacher(resultView);
+     });
 
     // new LoadTestContent((testView)=>{
     //   this.startTest(testView);
@@ -52,7 +54,9 @@ class App {
     this.HeaderFooter.display('body');
 
     $(function(){
+
       loginView.display('.content');
+
     });
 
   }

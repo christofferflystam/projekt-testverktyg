@@ -8,6 +8,14 @@ class ResultView extends Base{
 
 	constructor(propertyValues = {}){
 		super(propertyValues);
+		this.logger();
+	}
+
+	logger(){
+		
+		for(let x in this.students){
+			console.log("This is x in loop", x);
+		}
 	}
 
 }
