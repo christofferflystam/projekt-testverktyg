@@ -1,7 +1,9 @@
 Question.addTemplate('default', function(){return `
   <div class="question-item hidden" id=question-item_${this.question_number}>
     <h1>Question ${this.question_number}</h1>
-    <div class="psuedo-label">${this.question_text}</div>
+    <div class="psuedo-label">
+    	<h3>${this.question_text}</h3>
+    </div>
     <div>${this.options.display()}</div>  
   </div>
   `});

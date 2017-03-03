@@ -1,4 +1,8 @@
 /*MAIN CONTENT*/
+body {
+	overflow-x: hidden;
+}
+
 .content {
 	/*Needs testing*/
 	min-height: 80vh;
@@ -8,7 +12,6 @@
 
 
 /*FOOTER*/
-
 .convert-navbar-to-footer {
 	margin: 0;
 	height: 100px;
@@ -21,31 +24,33 @@
 	text-align: center;
 }
 
-
-
 /*LOGIN*/
 .login-container{
-
-  max-width: 400px;
-
-  margin: auto;
+	max-width: 300px;
+	margin: auto;
 }
+
+.login-container label {
+	margin-top: 25px;
+	margin-bottom: 10px;
+}
+
+.login-container h1 {
+	padding: 0 5%;
+}
+
 
 #clickMe{
-  width:100%;
-  padding: 10px;
-  margin-top: 6%;
-  border: 0;
+	width:100%;
+	padding: 10px;
+	margin-top: 6%;
+	border: 0;
 }
 
-
-
-
-
 /*TEST-PAGE*/
-
 .list-group>.list-group-item>a {
 	color: black;
+	text-decoration: none;
 }
 
 .button-right>button{
@@ -53,117 +58,231 @@
 	margin-left: 2px;
 }
 
-/*RESULT-PAGE*/
+.side-bar {
+	min-height: 60vh;
+}
 
+.side-bar li {
+	cursor: pointer;
+}
+
+.question h1 {
+	margin: 0;
+	margin-bottom: 20px;
+}
+
+.question input {
+	margin-right: 18px;
+}
+
+/*RESULT-PAGE*/
 .dropdown-menu{
 	margin-left: 27%;
 }
 
+.test-result {
+	text-align: right;
+}
 
-/*IPHONE-VIEW*/
+ @media only screen and (max-width : 992px) {
+ 	.test-result {
+		text-align: left;
+	}
+ }
+
+
+/*IPHONE-VIEW PORTRAIT*/
 @media only screen 
-  and (max-device-width: 376px) 
-  and (max-device-width: 668px) 
-  and (orientation: portrait){
-  	/*Result view*/
-.panel-title{
-	font-size: 20px;
-}
-.well{
-	font-size: 18px;
-}
+and (max-device-width: 376px) 
+and (max-device-width: 668px) 
+and (orientation: portrait){
+	
+	/*LOGIN*/
+	.login-container {
+		font-size: 24px;
+	}
+
+	.login-container h1{
+		font-size: 40px;
+	}
+
+	#clickMe{
+		margin-top: 15%;
+		height: 100px;
+	}
+
+	.login-container input{
+		font-size: 24px;
+		height: 60px;
+	}
+
+	/*Result view*/
+	.panel-title{
+		font-size: 0px;
+	}
+
+	.well{
+		font-size: 18px;
+	}
+
 	/*Student view*/
-p{
-	font-size: 17px;
+	p{
+		font-size: 17px;
+	}
+
+	a{
+		font-size: 18px;
+	}
+
+	.side-bar {
+		min-height: 15vh;
+	}
+
+	/*Test Results*/
+	.panel-heading .panel-title{
+		font-size:20px;
+	}
+
+	.button-left button, .button-right button {
+		font-size: 23px;
+	}
+
+	.question label {
+		font-size: 23px;
+	}
+
+	/*Footer Content*/
+	.footer-content{
+		font-size:18px;
+	}
+
+	/*Navbar Content*/
+	.navbar-header .navbar-brand{
+		font-size: 24px;
+	}
+
 }
-a{
-	font-size: 18px;
-}
-/*Test Results*/
-.panel-heading .panel-title{
-	font-size:20px;
-}
-/*Footer Content*/
-.footer-content{
-	font-size:18px;
-}
-/*Navbar Content*/
-.navbar-header .navbar-brand{
-	font-size: 24px;
-}
+/*IPHONE-VIEW LANDSCAPE*/
+@media only screen 
+and (min-device-width: 376px) 
+and (max-device-width: 668px) 
+and (orientation: landscape){
+	/*LOGIN*/
+	.page-header {
+		margin: 0 0;
+	}
+
+	.login-container h1 {
+		margin: 0;
+	}
+
+	.login-container {
+		font-size: 24px;
+	}
+
+	.login-container label {
+		margin: 0;
+		height: 20px;
+	}
+
+	.login-container input{
+		font-size: 24px;
+	}
+
+	/*TESTVIEW*/
+	.side-bar {
+		min-height: 15vh;
+	}
+
+	.button-left button, .button-right button {
+		font-size: 23px;
+	}
+
+	.question label {
+		font-size: 23px;
+	}
 }
 
 /*IPAD-VIEW*/
 @media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: portrait){
-.content {
-	min-height: 82vh;
-}
-.panel-title{
-	font-size: 24px;
-}
-.well{
-	font-size: 22px;
-}
-	/*Student view*/
-p{
-	font-size: 20px;
-}
-a{
-	font-size: 22px;
-}
-/*Test Results*/
-.panel-heading .panel-title{
-	font-size:24px;
-}
-/*Footer Content*/
-.footer-content{
-	font-size:16px;
-}
-/*Navbar Content*/
-.navbar-header .navbar-brand{
-	font-size: 28px;
-}
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: portrait){
+
+	.content {
+		min-height: 82vh;
+	}
+
+	.panel-title{
+		font-size: 24px;
+	}
+
+	.well{
+		font-size: 22px;
+	}
+
+	/*Test Results*/
+	.panel-heading .panel-title{
+		font-size:24px;
+	}
+
+	/*Footer Content*/
+	.footer-content{
+
+		font-size:16px;
+	}
+	/*Navbar Content*/
+	.navbar-header .navbar-brand{
+		font-size: 28px;
+	}
+
+	.question label {
+		font-size: 30px;
+	}
+
+
 
 }
-/* Landscape */
+/* Ipad Landscape */
 @media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: landscape){
-.panel-title{
-	font-size: 24px;
-}
-.well{
-	font-size: 22px;
-}
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: landscape){
+	.panel-title{
+		font-size: 24px;
+	}
+
+	.well{
+		font-size: 22px;
+	}
+
 	/*Student view*/
-p{
-	font-size: 20px;
-}
-a{
-	font-size: 22px;
-}
-/*Test Results*/
-.panel-heading .panel-title{
-	font-size:24px;
-}
-/*Footer Content*/
-.footer-content{
-	font-size:20px;
-}
-/*Navbar Content*/
-.navbar-header .navbar-brand{
-	font-size: 28px;
-}
+	p{
+		font-size: 20px;
+	}
 
+	a{
+		font-size: 22px;
+	}
 
+	/*Test Results*/
+	.panel-heading .panel-title{
+		font-size:24px;
+	}
 
+	/*Footer Content*/
+	.footer-content{
+		font-size:20px;
+	}
 
+	/*Navbar Content*/
+	.navbar-header .navbar-brand{
+		font-size: 28px;
+	}
 
-
+	.question label {
+		font-size: 30px;
+	}
 
 }
 
