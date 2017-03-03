@@ -42,15 +42,25 @@ class LoadTeacherContent extends Base{
     //Then assign matches to the right list. 
     
       for(let j = 0; j < allCompletedTestsFromDb.length; j++){
-        
+        let NumOfQuestions = 0;
+        let NumOfCorrectAnswers = 0;
+
         for(let z = 0; z < allCompletedQuestion.length; z++){
               
           if(allCompletedTestsFromDb[j].test_id === allCompletedQuestion[z].completed_tests_test_id){
               
             allCompletedTestsFromDb[j].completedquestions.push(allCompletedQuestion[z]);
-
+            console.log(allCompletedQuestion[z].answers[0].correct_or_wrong);
+            if(allCompletedQuestion[z].answers[0].correct_or_wrong === 'correct') {
+              NumOfCorrectAnswers++;
+            }
+            NumOfQuestions++;
           }
         }
+        console.log(allCompletedTestsFromDb[j].test_name, 'Num Of Q:s ', NumOfQuestions);
+        allCompletedTestsFromDb[j].NumberOfQuestions = NumOfQuestions;
+        console.log(allCompletedTestsFromDb[j].test_name, 'Num Of Corrects ', NumOfCorrectAnswers);
+        allCompletedTestsFromDb[j].NumberOfCorrectAnswers = NumOfCorrectAnswers;
       }
       //After everything has loaded in terms of tests from the DB, we start to sort out how many correct answers the students have
       for(let i = 0; i < theResultView.students.length; i++){ //Go through all the students
@@ -64,45 +74,12 @@ class LoadTeacherContent extends Base{
           theResultView.students[i].completedTests.push(allCompletedTestsFromDb[j]);
           
           
-          //Assume that the respective student has done 1 test and assign respective student to be the one to be inspected
-          let student = theResultView.students[i].completedTests[0]; 
-
-
-          //This one is a bit trickier. Normally, we'd compare against length of completedquestions, but since this value is offset 
-          //i prefer to run a comparison against the amount of keys the student object has, which means that we run against amount of attributes.
-          //With the current setup of the DB, we find that this is actually 4 - Which under current structure does not change, thus, we keep to that, currently.
-          //Could change, but not nessecary.
-          for(let x = 0; x < Object.keys(student).length - 1; x++){
-
-             //Push the value of correct or wrong unto the array
-             score.push(student.completedquestions[x].answers[0].correct_or_wrong);
-              //To skip repeating of assignment, we make a simple check against if we are at the "breaking" point, and assign stuff
-              if(x === Object.keys(student).length - 2){
-                
-                //Dynamically assign the score array to students of theResultView, making it so that we do not need to declare standard prop values
-                //or declare in the constructor that it has a score attribute, we just assign it straight up, allowing for much ease.
-                theResultView.students[i].score = score;
-
-                //Assign variables for counting what their current score is, and what the max is.
-                let current = 0;
-                let max = theResultView.students[i].score.length;
-                
-                //Iterate through the score array
-                for(let total of theResultView.students[i].score){
-                    if(total === "correct"){ //if it's correct, current score increases by 1
-                      current += 1;
-                    }
-                }
-                theResultView.students[i].score = []; //Empty the array
-                theResultView.students[i].score.push(current); //Push the current score
-                theResultView.students[i].score.push(max); //Push the max score
-                
-              }}
+          
             }
           }
         }
     });
-
+    console.log('Resultatvy: ', theResultView);
 
     // All testdata is generated, so run the 
     // callback and send theTestView to it
@@ -110,3 +87,4 @@ class LoadTeacherContent extends Base{
     this.callback(theResultView);    
   }
 }
+
