@@ -1,4 +1,8 @@
 /*MAIN CONTENT*/
+body {
+	overflow-x: hidden;
+}
+
 .content {
 	/*Needs testing*/
 	min-height: 80vh;
@@ -35,9 +39,6 @@
 	padding: 0 5%;
 }
 
-.login-container input {
-
-}
 
 #clickMe{
 	width:100%;
@@ -49,6 +50,7 @@
 /*TEST-PAGE*/
 .list-group>.list-group-item>a {
 	color: black;
+	text-decoration: none;
 }
 
 .button-right>button{
@@ -56,10 +58,37 @@
 	margin-left: 2px;
 }
 
+.side-bar {
+	min-height: 60vh;
+}
+
+.side-bar li {
+	cursor: pointer;
+}
+
+.question h1 {
+	margin: 0;
+	margin-bottom: 20px;
+}
+
+.question input {
+	margin-right: 18px;
+}
+
 /*RESULT-PAGE*/
 .dropdown-menu{
 	margin-left: 27%;
 }
+
+.test-result {
+	text-align: right;
+}
+
+ @media only screen and (max-width : 992px) {
+ 	.test-result {
+		text-align: left;
+	}
+ }
 
 
 /*IPHONE-VIEW PORTRAIT*/
@@ -89,7 +118,7 @@ and (orientation: portrait){
 
 	/*Result view*/
 	.panel-title{
-		font-size: 20px;
+		font-size: 0px;
 	}
 
 	.well{
@@ -105,9 +134,21 @@ and (orientation: portrait){
 		font-size: 18px;
 	}
 
+	.side-bar {
+		min-height: 15vh;
+	}
+
 	/*Test Results*/
 	.panel-heading .panel-title{
 		font-size:20px;
+	}
+
+	.button-left button, .button-right button {
+		font-size: 23px;
+	}
+
+	.question label {
+		font-size: 23px;
 	}
 
 	/*Footer Content*/
@@ -147,6 +188,19 @@ and (orientation: landscape){
 	.login-container input{
 		font-size: 24px;
 	}
+
+	/*TESTVIEW*/
+	.side-bar {
+		min-height: 15vh;
+	}
+
+	.button-left button, .button-right button {
+		font-size: 23px;
+	}
+
+	.question label {
+		font-size: 23px;
+	}
 }
 
 /*IPAD-VIEW*/
@@ -167,12 +221,6 @@ and (orientation: portrait){
 		font-size: 22px;
 	}
 
-	/*LOGIN*/
-
-
-	/*Student view*/
-	
-
 	/*Test Results*/
 	.panel-heading .panel-title{
 		font-size:24px;
@@ -187,6 +235,12 @@ and (orientation: portrait){
 	.navbar-header .navbar-brand{
 		font-size: 28px;
 	}
+
+	.question label {
+		font-size: 30px;
+	}
+
+
 
 }
 /* Ipad Landscape */
@@ -224,6 +278,10 @@ and (orientation: landscape){
 	/*Navbar Content*/
 	.navbar-header .navbar-brand{
 		font-size: 28px;
+	}
+
+	.question label {
+		font-size: 30px;
 	}
 
 }
