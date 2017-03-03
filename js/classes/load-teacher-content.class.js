@@ -9,7 +9,6 @@ class LoadTeacherContent extends Base{
   generateStudents(){
   	var studentsFromDb = new StudentList();
   	studentsFromDb.readStudentsFromDb(()=>{
-      console.log("Read from DB",studentsFromDb);
     });
 
     var theResultView = new ResultView({
@@ -50,16 +49,16 @@ class LoadTeacherContent extends Base{
           if(allCompletedTestsFromDb[j].test_id === allCompletedQuestion[z].completed_tests_test_id){
               
             allCompletedTestsFromDb[j].completedquestions.push(allCompletedQuestion[z]);
-            console.log(allCompletedQuestion[z].answers[0].correct_or_wrong);
+            
             if(allCompletedQuestion[z].answers[0].correct_or_wrong === 'correct') {
               NumOfCorrectAnswers++;
             }
             NumOfQuestions++;
           }
         }
-        console.log(allCompletedTestsFromDb[j].test_name, 'Num Of Q:s ', NumOfQuestions);
+        
         allCompletedTestsFromDb[j].NumberOfQuestions = NumOfQuestions;
-        console.log(allCompletedTestsFromDb[j].test_name, 'Num Of Corrects ', NumOfCorrectAnswers);
+        
         allCompletedTestsFromDb[j].NumberOfCorrectAnswers = NumOfCorrectAnswers;
       }
       //After everything has loaded in terms of tests from the DB, we start to sort out how many correct answers the students have
@@ -79,7 +78,7 @@ class LoadTeacherContent extends Base{
           }
         }
     });
-    console.log('Resultatvy: ', theResultView);
+    
 
     // All testdata is generated, so run the 
     // callback and send theTestView to it

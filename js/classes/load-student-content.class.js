@@ -11,11 +11,10 @@ class LoadStudentContent extends Base {
 		availableTestsFromDb.readAllFromDb(()=>{
 
 		});
-		console.log('ATDB', availableTestsFromDb);
+		
 		var studentsFromDb = new StudentList();
 		studentsFromDb.readStudentsFromDb(()=>{
-			console.log("Read from DB",studentsFromDb);
-
+			
 			var theStudentView = new StudentView({
 				students: studentsFromDb,
 				availableTestList: availableTestsFromDb
@@ -24,7 +23,7 @@ class LoadStudentContent extends Base {
 		//Get index of the student i want to laod
 		for(let i = 0; i < theStudentView.students.length; i++) {
 			if(theStudentView.students[i].user_id == sessionStorage.user_id) {
-				console.log('match!', theStudentView.students[i].user_id);
+				
 				sessionStorage.indexOfCurrentlyLoggedInStudent = i;
 			}
 		}
@@ -60,16 +59,16 @@ class LoadStudentContent extends Base {
    					if(allCompletedTestsFromDb[j].test_id === allCompletedQuestion[z].completed_tests_test_id){
 
    						allCompletedTestsFromDb[j].completedquestions.push(allCompletedQuestion[z]);
-   						console.log(allCompletedQuestion[z].answers[0].correct_or_wrong);
+   						
    						if(allCompletedQuestion[z].answers[0].correct_or_wrong === 'correct') {
    							NumOfCorrectAnswers++;
    						}
    						NumOfQuestions++;
    					}
    				}
-   				console.log(allCompletedTestsFromDb[j].test_name, 'Num Of Q:s ', NumOfQuestions);
+   				
    				allCompletedTestsFromDb[j].NumberOfQuestions = NumOfQuestions;
-   				console.log(allCompletedTestsFromDb[j].test_name, 'Num Of Corrects ', NumOfCorrectAnswers);
+   				
    				allCompletedTestsFromDb[j].NumberOfCorrectAnswers = NumOfCorrectAnswers;
    			}
 
@@ -77,10 +76,10 @@ class LoadStudentContent extends Base {
       for(let i = 0; i < theStudentView.students.length; i++){ //Go through all the students
         let score = []; //Start an array for each student
         for(let j = 0; j < allCompletedTestsFromDb.length; j++) { //iterate through all completed tests from the DB to find the users
-        	
+
         //Run a check to see that the users Id is correct to that of the test completed
         if(theStudentView.students[i].user_id === allCompletedTestsFromDb[j].users_user_id) {
-        	
+
           //Push the populated completed tests unto each student
           theStudentView.students[i].completedTests.push(allCompletedTestsFromDb[j]);
           
