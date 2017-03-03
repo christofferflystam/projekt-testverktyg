@@ -11,49 +11,88 @@ class LoadStudentContent extends Base {
 		availableTestsFromDb.readAllFromDb(()=>{
 
 		});
-		console.log('ATDB', availableTestsFromDb);
+		
 		var studentsFromDb = new StudentList();
 		studentsFromDb.readStudentsFromDb(()=>{
-			console.log("Read from DB",studentsFromDb);
-
+			
 			var theStudentView = new StudentView({
 				students: studentsFromDb,
 				availableTestList: availableTestsFromDb
 			});
 
 		//Get index of the student i want to laod
-		console.log('Christoffer',theStudentView.students);
 		for(let i = 0; i < theStudentView.students.length; i++) {
 			if(theStudentView.students[i].user_id == sessionStorage.user_id) {
-				console.log('match!', theStudentView.students[i].user_id);
+				
 				sessionStorage.indexOfCurrentlyLoggedInStudent = i;
 			}
 		}
 
 		var allCompletedTestsFromDb = new CompletedTestList();
+
+		var allCompletedQuestion = new CompletedQuestionList();
+
+		var allCompletedAnswer = new AnswerList();
+
+		allCompletedAnswer.readAllFromDb();
+
+		allCompletedQuestion.readAllFromDb(() =>{
+
+			for(let x = 0; x < allCompletedQuestion.length; x++){
+				for(let y = 0; y < allCompletedAnswer.length; y++){
+					if(allCompletedQuestion[x].question_id === allCompletedAnswer[y].answer_id){
+						allCompletedQuestion[x].answers.push(allCompletedAnswer[y]);
+					}
+				}
+			}});
+
+
 		allCompletedTestsFromDb.readAllFromDb(()=>{
     		//For evry student i will loop thrue completed tests and look for matching user_id. 
    			//Then assign matches to the right list. 
-    		for (let i = 0; i < theStudentView.students.length; i++) {
-    			console.log('3');
+   			for(let j = 0; j < allCompletedTestsFromDb.length; j++){
+   				let NumOfQuestions = 0;
+   				let NumOfCorrectAnswers = 0;
 
-    			for(let j = 0; j < allCompletedTestsFromDb.length; j++) {
-    				console.log('9');
+   				for(let z = 0; z < allCompletedQuestion.length; z++){
 
-        			//push matching completed test to students completed test list
-        			if(theStudentView.students[i].user_id === allCompletedTestsFromDb[j].users_user_id) {
-        			console.log('Bujamin');
-        			console.log(theStudentView.students[i].completedTests);
-        			theStudentView.students[i].completedTests.push(allCompletedTestsFromDb[j]);
-        }
+   					if(allCompletedTestsFromDb[j].test_id === allCompletedQuestion[z].completed_tests_test_id){
 
-    }
+   						allCompletedTestsFromDb[j].completedquestions.push(allCompletedQuestion[z]);
+   						
+   						if(allCompletedQuestion[z].answers[0].correct_or_wrong === 'correct') {
+   							NumOfCorrectAnswers++;
+   						}
+   						NumOfQuestions++;
+   					}
+   				}
+   				
+   				allCompletedTestsFromDb[j].NumberOfQuestions = NumOfQuestions;
+   				
+   				allCompletedTestsFromDb[j].NumberOfCorrectAnswers = NumOfCorrectAnswers;
+   			}
+
+   			//After everything has loaded in terms of tests from the DB, we start to sort out how many correct answers the students have
+      for(let i = 0; i < theStudentView.students.length; i++){ //Go through all the students
+        let score = []; //Start an array for each student
+        for(let j = 0; j < allCompletedTestsFromDb.length; j++) { //iterate through all completed tests from the DB to find the users
+
+        //Run a check to see that the users Id is correct to that of the test completed
+        if(theStudentView.students[i].user_id === allCompletedTestsFromDb[j].users_user_id) {
+
+          //Push the populated completed tests unto each student
+          theStudentView.students[i].completedTests.push(allCompletedTestsFromDb[j]);
+          
+          
+          
+      }
+  }
 }
 
-  this.callback(theStudentView);
-	});
-	
+this.callback(theStudentView);
+});
+
 
 	});
-}
+	}
 }

@@ -1,6 +1,11 @@
 class CompletedQuestion extends Base{
 
 
+static defaultPropertyValues(){
+	return{
+		answers: new AnswerList()
+	}
+}
 
 /*Add Array for completed tests*/
 constructor(propertyValues){

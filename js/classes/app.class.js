@@ -71,7 +71,11 @@ class App {
 
 
   static startTest(testView){
-    $('.content').empty();
+    $('body').empty();
+
+    this.HeaderFooter = new HeaderFooter();
+
+    this.HeaderFooter.display('body');
     
     $(function() {
       testView.display('.content');
