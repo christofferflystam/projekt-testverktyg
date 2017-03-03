@@ -53,6 +53,8 @@ class App {
 
     $('div[id=question-item_1]').removeClass("hidden");
 
+    
+
     });
     
 
