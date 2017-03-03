@@ -20,6 +20,7 @@ class Test extends Base{
 
 
 
+
   static get sqlQueries(){
     return {
       //example of sqlquery

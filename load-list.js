@@ -64,7 +64,7 @@ window.load = `
     student-view.class.js
     available-test.class.js
     available-test-list.class.js
-
+    
 
 
   templates/
@@ -82,6 +82,7 @@ window.load = `
     student-view.html
     available-tests.html
     user.html
+   
 
   js/main.js
 
