@@ -146,11 +146,11 @@ class TestView extends Base {
   }
 
    insertCompletedQuestionInDb(){
-   	console.log('logging question', this.new_question_id, this.new_question_text, this.completed_tests_test_id);
+   	console.log('logging question', this.new_question_id, this.new_question_text, this.new_test_id);
     this.db.newCompletedQuestion({
       question_id: this.new_question_id,
       question_text: this.new_question_text,
-      completed_tests_test_id: this.completed_tests_test_id
+      completed_tests_test_id: this.new_test_id
     });
   }
 
