@@ -131,7 +131,9 @@ class TestView extends Base {
  	 
  		});
       //redirect to studentview
+      setTimeout(function() {
       document.location.href = '/student';
+    }, 50);
 	}
 	else{
 		console.log('test not complete');

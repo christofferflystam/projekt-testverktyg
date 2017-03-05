@@ -51,9 +51,9 @@ class App {
 
     this.HeaderFooter.display('body');
     
-    $(function() {
+    setTimeout(function() {
       resultView.display('.content');
-    }); 
+    }, 50); 
     
   }
 
