@@ -89,7 +89,8 @@ class TestView extends Base {
 
  	   	this.new_test_id = completedTestListFromDb.length;
  	    this.new_test_name = $('h1[id=test-name-title]').text();
- 	    this.new_user_id = 2;
+ 	    this.new_user_id = sessionStorage.user_id;
+      console.log(this.new_user_id);
  	    this.insertCompletedTestInDb();
  		console.log('this is a completed test', this.new_test_id, this.new_test_name, this.new_user_id);
  	   	
