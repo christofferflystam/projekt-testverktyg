@@ -79,6 +79,8 @@ class App {
     
     $(function() {
       testView.display('.content');
+      $('#question-sidebaritem_1').addClass('active');
+      $('#question-item_1').removeClass('hidden');
     });
 
   }

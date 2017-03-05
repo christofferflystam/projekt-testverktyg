@@ -66,6 +66,10 @@ body {
 	cursor: pointer;
 }
 
+.active {
+	background-color: lightgrey;
+}
+
 .question h1 {
 	margin: 0;
 	margin-bottom: 20px;
@@ -73,6 +77,10 @@ body {
 
 .question input {
 	margin-right: 18px;
+}
+
+.psuedo-label {
+	font-size: 24px;
 }
 
 /*RESULT-PAGE*/
