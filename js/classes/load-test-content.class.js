@@ -23,7 +23,7 @@ class LoadTestContent extends Base{
     //populates the empty TestList using
     //its readALLFromDb function
     testListFromDb.readAllFromDb(()=>{
-    console.log("Read from DB",testListFromDb);
+    
 
     //creates a TestView that takes one TestList
     //as argument
@@ -34,10 +34,10 @@ class LoadTestContent extends Base{
 
     optionsListFromDb.readAllFromDb();
 
-    console.log('did i get options', optionsListFromDb);
+
 
     questionsListFromDb.readAllFromDb(()=>{
-      console.log("Read from DB", questionsListFromDb);
+    
 
       for (let j = 0; j < questionsListFromDb.length; j++){
 
@@ -59,7 +59,7 @@ class LoadTestContent extends Base{
 
 
           if(theTestView.tests[i].test_id == questionsListFromDb[j].tests_test_id){
-            console.log('Match');
+
             questionsListFromDb[j].question_number = question_number_count;
             theTestView.tests[i].questions.push(questionsListFromDb[j]);
             theTestView.tests[i].sidebaritems.push({
@@ -82,7 +82,6 @@ class LoadTestContent extends Base{
 
     });
 
-    console.log('last reading', theTestView);
 
     //uses the callback function that was sent
     //as an argument in this function, and then
@@ -90,7 +89,7 @@ class LoadTestContent extends Base{
     //an argument
     //remember that callback in this case is the 
     //function we supplied before which was this.start
-    console.log('log fourth test', theTestView.tests[0].questions);
+
     this.callback(theTestView);
     
     

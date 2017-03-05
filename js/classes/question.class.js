@@ -5,7 +5,6 @@ static defaultPropertyValues(){
       question_id: 0,
       question_text: 'standard',
       tests_test_id: 0,
-      question_number: 0,
       options: new OptionList()
     }
   }
