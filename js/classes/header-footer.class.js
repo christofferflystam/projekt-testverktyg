@@ -2,8 +2,7 @@ class HeaderFooter extends Base {
 
 	defaultPropertyValues(){
 		return{
-			user: new User()
-			
+			user: new User()	
 		}
 	}
 
@@ -11,9 +10,6 @@ class HeaderFooter extends Base {
 		super(propertyValues);
 		this.user = new User();
 
-
-
-		
-		}
+	}
 	
 }

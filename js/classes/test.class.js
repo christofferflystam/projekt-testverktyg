@@ -10,15 +10,11 @@ class Test extends Base{
     }
   }
 
-/*Add Array for completed tests*/
+  /*Add Array for completed tests*/
   constructor(propertyValues){
- 	super(propertyValues);
+ 	  super(propertyValues);
  	
- 	
-  
 	}
-
-
 
   static get sqlQueries(){
     return {
@@ -28,5 +24,4 @@ class Test extends Base{
       ` 
     }
   }
-
 }

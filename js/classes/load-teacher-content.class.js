@@ -34,55 +34,49 @@ class LoadTeacherContent extends Base{
         }
       }});
 
-      allCompletedTestsFromDb.readAllFromDb(()=>{
-        
-      
+    allCompletedTestsFromDb.readAllFromDb(()=>{
+
     //For evry student i will loop thrue completed tests and look for matching user_id. 
     //Then assign matches to the right list. 
     
-      for(let j = 0; j < allCompletedTestsFromDb.length; j++){
-        let NumOfQuestions = 0;
-        let NumOfCorrectAnswers = 0;
+    for(let j = 0; j < allCompletedTestsFromDb.length; j++){
+      let NumOfQuestions = 0;
+      let NumOfCorrectAnswers = 0;
 
-        for(let z = 0; z < allCompletedQuestion.length; z++){
-              
-          if(allCompletedTestsFromDb[j].test_id === allCompletedQuestion[z].completed_tests_test_id){
-              
-            allCompletedTestsFromDb[j].completedquestions.push(allCompletedQuestion[z]);
-            
-            if(allCompletedQuestion[z].answers[0].correct_or_wrong === 'correct') {
-              NumOfCorrectAnswers++;
-            }
-            NumOfQuestions++;
+      for(let z = 0; z < allCompletedQuestion.length; z++){
+
+        if(allCompletedTestsFromDb[j].test_id === allCompletedQuestion[z].completed_tests_test_id){
+
+          allCompletedTestsFromDb[j].completedquestions.push(allCompletedQuestion[z]);
+
+          if(allCompletedQuestion[z].answers[0].correct_or_wrong === 'correct') {
+            NumOfCorrectAnswers++;
           }
+          NumOfQuestions++;
         }
-        
-        allCompletedTestsFromDb[j].NumberOfQuestions = NumOfQuestions;
-        
-        allCompletedTestsFromDb[j].NumberOfCorrectAnswers = NumOfCorrectAnswers;
       }
+
+      allCompletedTestsFromDb[j].NumberOfQuestions = NumOfQuestions;
+
+      allCompletedTestsFromDb[j].NumberOfCorrectAnswers = NumOfCorrectAnswers;
+    }
       //After everything has loaded in terms of tests from the DB, we start to sort out how many correct answers the students have
       for(let i = 0; i < theResultView.students.length; i++){ //Go through all the students
         let score = []; //Start an array for each student
         for(let j = 0; j < allCompletedTestsFromDb.length; j++) { //iterate through all completed tests from the DB to find the users
-        
+
         //Run a check to see that the users Id is correct to that of the test completed
         if(theResultView.students[i].user_id === allCompletedTestsFromDb[j].users_user_id) {
-          
+
           //Push the populated completed tests unto each student
           theResultView.students[i].completedTests.push(allCompletedTestsFromDb[j]);
-          
-          
-          
-            }
-          }
-        }
-    });
-    
 
+        }
+      }
+    }
+  });
     // All testdata is generated, so run the 
     // callback and send theTestView to it
-    
     this.callback(theResultView);    
   }
 }

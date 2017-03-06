@@ -15,10 +15,4 @@ class StudentView extends Base {
     	this.AvailableTestsSpan = 'Available Tests';
     	
 	}
-
-
-
-
-
-
 }

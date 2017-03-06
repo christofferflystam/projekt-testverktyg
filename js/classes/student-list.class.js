@@ -19,5 +19,4 @@ class StudentList extends List {
 
 		}
 	}
-
 }

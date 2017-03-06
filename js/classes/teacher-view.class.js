@@ -1,3 +1,0 @@
-class TeacherView extends Base {
-	
-}

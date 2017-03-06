@@ -18,7 +18,6 @@ class LoadLoginContent extends Base {
 	        });
 
 	        this.callback(theLoginView);
-
 	    });
  
 	}

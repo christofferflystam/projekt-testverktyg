@@ -7,10 +7,7 @@ class ResultView extends Base{
 	}
 
 	constructor(propertyValues = {}){
-		super(propertyValues);
-		
+		super(propertyValues);	
 	}
-
-
 }
 

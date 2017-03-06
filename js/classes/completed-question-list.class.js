@@ -12,8 +12,6 @@ class CompletedQuestionList extends List {
     });
   }
 
-  
-
   static get sqlQueries(){
     return {
       readAll: `
