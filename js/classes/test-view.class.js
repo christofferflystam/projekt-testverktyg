@@ -136,6 +136,7 @@ class TestView extends Base {
     }, 50);
 	}
 	else{
+    alert('Test incomplete, you need to fill out all the questions.');
 		console.log('test not complete');
 	}
 
