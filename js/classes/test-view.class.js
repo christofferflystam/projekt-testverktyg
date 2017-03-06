@@ -78,7 +78,7 @@ class TestView extends Base {
 //redirects to the resultview
     setTimeout(function() {
       document.location.href = '/student';
-    }, 50);
+    }, 200);
   
 	}
 	else{
