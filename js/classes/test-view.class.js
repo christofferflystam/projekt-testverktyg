@@ -63,77 +63,17 @@ class TestView extends Base {
 
  	if($('input:radio:checked').length === document.querySelectorAll(".list-group-item").length){
 
- 	 	let completedQuestionListFromDb = new CompletedQuestionList();
- 	 	let questionListFromDb = new QuestionList();
- 	 	let optionListFromDb = new OptionList();
- 	   	let completedTestListFromDb = new CompletedTestList();
- 	   	let answerListFromDb = new AnswerList();
- 	   	
- 	   	questionListFromDb.readAllFromDb(()=>{
- 	   		console.log('Read from db');
- 	   	});
- 	   	optionListFromDb.readAllFromDb(()=>{
- 	   		console.log('Read from db');
- 	   	});
- 	   	answerListFromDb.readAllFromDb(()=>{
- 	   		console.log('Read from db');
- 	   	});
- 	   	completedTestListFromDb.readAllFromDb(()=>{
- 	   		console.log('Read from db');
- 	   	});
- 	   	completedQuestionListFromDb.readAllFromDb(()=>{
- 	   		console.log('Read from db');
- 	   	});
+ 	
 
- 	   	new LoadTestContent((testView)=>{
+      this.generateDataFromDb((generatedData)=>{
+        this.writeThingsToDb(generatedData);
+        
+      });
 
- 	   	this.new_test_id = completedTestListFromDb.length;
- 	    this.new_test_name = $('h1[id=test-name-title]').text();
- 	    this.new_user_id = sessionStorage.user_id;
-      console.log(this.new_user_id);
- 	    this.insertCompletedTestInDb();
- 		console.log('this is a completed test', this.new_test_id, this.new_test_name, this.new_user_id);
- 	   	
- 	   	this.amountofcompletedquestions = completedQuestionListFromDb.length;
- 	   	this.amountofanswers = answerListFromDb.length;
- 	   	this.amountofcompletedquestions--;
- 	   	this.amountofanswers--;
-
- 	    for(let i = 1; i <= document.querySelectorAll(".list-group-item").length; i++){
- 	  		this.amountofcompletedquestions++;
- 	  		this.new_question_id = this.amountofcompletedquestions;
- 	  		this.new_question_text = $('div[id=question-text-' + i +']').text();
- 	  		console.log('this is a completed question', this.new_question_id, this.new_question_text, this.new_test_id);
-
- 	  		this.insertCompletedQuestionInDb();
- 	  		let temp_question_text = $('div[id=question-text-' + i +']').text();
- 	  	  	
- 	  	  	for(let j = 0; j < questionListFromDb.length; j++) {
- 	        if(questionListFromDb[j]['question_text'] === temp_question_text) {
- 	            this.id_for_radio_button = questionListFromDb[j].question_id;
- 	            console.log('this is the id number for specific group of radio buttons', this.id_for_radio_button);
- 	            this.new_answer_text = $('input[name=radio-option-' + this.id_for_radio_button +']:checked').parent().find('label').text();
- 	            for(let k = 0; k < optionListFromDb.length; k++){
- 	            	if(optionListFromDb[k]['option_text'] === this.new_answer_text && 
- 	            		optionListFromDb[k]['questions_question_id'] === this.id_for_radio_button){
- 	            		this.amountofanswers++;
- 	            		this.new_answer_id = this.amountofanswers;
- 	            		this.new_correct_or_wrong = optionListFromDb[k].correct_or_wrong;
-
- 	            		this.insertCompletedAnswerInDb();
- 	            		console.log('completed answer', this.new_answer_id, this.new_answer_text, this.new_question_id, this.new_correct_or_wrong);
- 	            			
- 	            			}
- 	            		}
- 	        		}
- 	    		}
- 	    	}	
- 	 
- 		});
-      //redirect to studentview
-      setTimeout(function() {
+    setTimeout(function() {
       document.location.href = '/student';
     }, 50);
+  
 	}
 	else{
     alert('Test incomplete, you need to fill out all the questions.');
@@ -141,6 +81,83 @@ class TestView extends Base {
 	}
 
  } 
+
+generateDataFromDb(callback){
+  this.completedQuestionListFromDb = new CompletedQuestionList();
+    this.questionListFromDb = new QuestionList();
+    this.optionListFromDb = new OptionList();
+    this.completedTestListFromDb = new CompletedTestList();
+      this.answerListFromDb = new AnswerList();
+      
+      this.questionListFromDb.readAllFromDb(()=>{
+        console.log('Read from db');
+      });
+      this.optionListFromDb.readAllFromDb(()=>{
+        console.log('Read from db');
+      });
+      this.answerListFromDb.readAllFromDb(()=>{
+        console.log('Read from db');
+      });
+      this.completedTestListFromDb.readAllFromDb(()=>{
+        console.log('Read from db');
+      });
+      this.completedQuestionListFromDb.readAllFromDb(()=>{
+        console.log('Read from db');
+      });
+
+      setTimeout(function() {
+      callback();
+    }, 50); 
+
+      
+
+
+}
+
+writeThingsToDb(){
+    console.log('issdasd', this.completedQuestionListFromDb);
+        this.new_test_id = this.completedTestListFromDb.length;
+      this.new_test_name = $('h1[id=test-name-title]').text();
+      this.new_user_id = sessionStorage.user_id;
+      console.log(this.new_user_id);
+      this.insertCompletedTestInDb();
+    console.log('this is a completed test', this.new_test_id, this.new_test_name, this.new_user_id);
+      
+      this.amountofcompletedquestions = this.completedQuestionListFromDb.length;
+      this.amountofanswers = this.answerListFromDb.length;
+      this.amountofcompletedquestions--;
+      this.amountofanswers--;
+
+      for(let i = 1; i <= document.querySelectorAll(".list-group-item").length; i++){
+        this.amountofcompletedquestions++;
+        this.new_question_id = this.amountofcompletedquestions;
+        this.new_question_text = $('div[id=question-text-' + i +']').text();
+        console.log('this is a completed question', this.new_question_id, this.new_question_text, this.new_test_id);
+
+        this.insertCompletedQuestionInDb();
+        let temp_question_text = $('div[id=question-text-' + i +']').text();
+          
+          for(let j = 0; j < this.questionListFromDb.length; j++) {
+          if(this.questionListFromDb[j]['question_text'] === temp_question_text) {
+              this.id_for_radio_button = this.questionListFromDb[j].question_id;
+              console.log('this is the id number for specific group of radio buttons', this.id_for_radio_button);
+              this.new_answer_text = $('input[name=radio-option-' + this.id_for_radio_button +']:checked').parent().find('label').text();
+              for(let k = 0; k < this.optionListFromDb.length; k++){
+                if(this.optionListFromDb[k]['option_text'] === this.new_answer_text && 
+                  this.optionListFromDb[k]['questions_question_id'] === this.id_for_radio_button){
+                  this.amountofanswers++;
+                  this.new_answer_id = this.amountofanswers;
+                  this.new_correct_or_wrong = this.optionListFromDb[k].correct_or_wrong;
+
+                  this.insertCompletedAnswerInDb();
+                  console.log('completed answer', this.new_answer_id, this.new_answer_text, this.new_question_id, this.new_correct_or_wrong);
+                    
+                    }
+                  }
+              }
+          }
+        } 
+}
 
   insertCompletedTestInDb(){
   	console.log('logging test', this.new_test_id, this.new_test_name, this.new_user_id);
