@@ -13,8 +13,6 @@ class HeaderFooter extends Base {
 	}
 
 	logout(){
-		// $(this).toggleClass('active');
-		// $(this).text('Projects Viewed');
 		if (confirm("Are you sure you want to log out?") == true) {
 			sessionStorage.clear();
 			document.location.href = '/';
