@@ -34,11 +34,8 @@ class LoadTestContent extends Base{
 
     optionsListFromDb.readAllFromDb();
 
-
-
     questionsListFromDb.readAllFromDb(()=>{
     
-
       for (let j = 0; j < questionsListFromDb.length; j++){
 
         for (let i = 0; i < optionsListFromDb.length; i++){
@@ -68,17 +65,12 @@ class LoadTestContent extends Base{
 
             });
             question_number_count++;
-
-
           }
 
-        
         }
         console.log(theTestView.tests[i].questions);
 
       }
-
-
 
     });
 
@@ -89,11 +81,8 @@ class LoadTestContent extends Base{
     //an argument
     //remember that callback in this case is the 
     //function we supplied before which was this.start
-
     this.callback(theTestView);
     
-    
-
   });
   }
 }

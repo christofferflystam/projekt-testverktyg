@@ -4,15 +4,12 @@ class OptionList extends List {
     super(Option,items);
   }
 
-
   readAllFromDb(callback){
     this.db.readAll((data)=>{
       this.push.apply(this,data);
       callback();
     });
   }
-
-  
 
   static get sqlQueries(){
     return {

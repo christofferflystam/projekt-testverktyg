@@ -21,5 +21,4 @@ class UserList extends List {
 
     }
   }
-
 }

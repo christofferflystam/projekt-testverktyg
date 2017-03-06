@@ -12,8 +12,6 @@ class LoginList extends List {
     });
   }
 
-  
-
   static get sqlQueries(){
     return {
       readAll: `
@@ -22,5 +20,4 @@ class LoginList extends List {
 
     }
   }
-
 }

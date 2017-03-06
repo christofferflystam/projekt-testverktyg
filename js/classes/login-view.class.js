@@ -17,8 +17,7 @@ class LoginView extends Base {
   }
 
   checkIt(){
-  		
-
+ 
 		let count1 = 0;
 
 		let username = false;
@@ -63,7 +62,8 @@ class LoginView extends Base {
 					pw = false;
 					break;
 				}				
-			}			
+			}
+						
 			count1 += 1; /* Consider user object checked, move on to next */
 			if(count1 === (Object.keys(this.users).length - 4)){ /* 4 last elements are DOm query elements, check length of the array */
 				count1 = 0;

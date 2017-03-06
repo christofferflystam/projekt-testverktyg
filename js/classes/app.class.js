@@ -1,7 +1,5 @@
 class App {
 
-  
-
   constructor(){
 
     new Router({
@@ -59,16 +57,11 @@ class App {
 
   static login(loginView){
 
-    // this.HeaderFooter = new HeaderFooter();
-
-    // this.HeaderFooter.display('body');
-
     $(function(){
       loginView.display('body');
     });
 
   }
-
 
   static startTest(testView){
     $('body').empty();

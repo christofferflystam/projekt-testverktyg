@@ -4,7 +4,6 @@ class TestList extends List {
     super(Test,items);
   }
 
-
   readAllFromDb(callback){
     this.db.readAll((data)=>{
       this.push.apply(this,data);
@@ -12,17 +11,11 @@ class TestList extends List {
     });
   }
 
-  
-
-  
-
   static get sqlQueries(){
     return {
       readAll: `
         SELECT * FROM tests
       `,
-
     }
   }
-
 }

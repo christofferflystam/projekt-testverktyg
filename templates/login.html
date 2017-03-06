@@ -1,17 +1,15 @@
 LoginView.addTemplate('default', function(){return `
 
-
 <div class ="login-container">
-<div class="page-header">
-  <h1 class="text-center">Welcome, please log in to continue</h1>
-</div>
+  <div class="page-header">
+    <h1 class="text-center">Welcome, please log in to continue</h1>
+  </div>
   <div class="row">
     <div class="col-sm-12" align="center"</div>
       <label for="inputEmail">Username</label>
       <input type="text" class="form-control" id="inputEmail" placeholder="Username">
     </div>
   </div>
-
   <div class="row">
     <div class="col-sm-12" align="center"</div>
       <label for="inputPassword">Password</label>
@@ -19,7 +17,6 @@ LoginView.addTemplate('default', function(){return `
       <input type="password" class="form-control" id="inputPassword" placeholder="Password">
     </div>
   </div>
-
   <div class="control-group">
   <div class="controls">
   <div class="row">
@@ -28,7 +25,7 @@ LoginView.addTemplate('default', function(){return `
       Sign in</button>
       <p id= "wrong">wrong username or password</p>
     </div>
-</div>
+  </div>
 </div>
 
 `});

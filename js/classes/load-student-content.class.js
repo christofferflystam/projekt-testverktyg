@@ -6,6 +6,7 @@ class LoadStudentContent extends Base {
 		this.generateStudentView();
 
 	}
+
 	generateStudentView(){
 		var availableTestsFromDb = new AvailableTestList();
 		availableTestsFromDb.readAllFromDb(()=>{
@@ -23,7 +24,6 @@ class LoadStudentContent extends Base {
 		//Get index of the student i want to laod
 		for(let i = 0; i < theStudentView.students.length; i++) {
 			if(theStudentView.students[i].user_id == sessionStorage.user_id) {
-				
 				sessionStorage.indexOfCurrentlyLoggedInStudent = i;
 			}
 		}
@@ -44,7 +44,8 @@ class LoadStudentContent extends Base {
 						allCompletedQuestion[x].answers.push(allCompletedAnswer[y]);
 					}
 				}
-			}});
+			}
+		});
 
 
 		allCompletedTestsFromDb.readAllFromDb(()=>{
@@ -72,27 +73,23 @@ class LoadStudentContent extends Base {
    				allCompletedTestsFromDb[j].NumberOfCorrectAnswers = NumOfCorrectAnswers;
    			}
 
-   			//After everything has loaded in terms of tests from the DB, we start to sort out how many correct answers the students have
-      for(let i = 0; i < theStudentView.students.length; i++){ //Go through all the students
-        let score = []; //Start an array for each student
-        for(let j = 0; j < allCompletedTestsFromDb.length; j++) { //iterate through all completed tests from the DB to find the users
+   				//After everything has loaded in terms of tests from the DB, we start to sort out how many correct answers the students have
+		      	for(let i = 0; i < theStudentView.students.length; i++){ //Go through all the students
+		        	let score = []; //Start an array for each student
+		        	for(let j = 0; j < allCompletedTestsFromDb.length; j++) { //iterate through all completed tests from the DB to find the users
 
-        //Run a check to see that the users Id is correct to that of the test completed
-        if(theStudentView.students[i].user_id === allCompletedTestsFromDb[j].users_user_id) {
+			        //Run a check to see that the users Id is correct to that of the test completed
+			        if(theStudentView.students[i].user_id === allCompletedTestsFromDb[j].users_user_id) {
+				          //Push the populated completed tests unto each student
+				          theStudentView.students[i].completedTests.push(allCompletedTestsFromDb[j]);
 
-          //Push the populated completed tests unto each student
-          theStudentView.students[i].completedTests.push(allCompletedTestsFromDb[j]);
-          
-          
-          
-      }
-  }
-}
+				      }
+				  }
+				}
 
-this.callback(theStudentView);
-});
+				this.callback(theStudentView);
 
-
+			});
 	});
 	}
 }
