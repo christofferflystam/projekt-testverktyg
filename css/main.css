@@ -9,7 +9,9 @@ body {
 }
 
 /*Header*/
-
+a{
+	cursor:pointer;
+}
 
 /*FOOTER*/
 .convert-navbar-to-footer {

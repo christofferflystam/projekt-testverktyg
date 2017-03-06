@@ -19,8 +19,12 @@ HeaderFooter.addTemplate('default', function(){return `
         <!--No navigation needen at this time-->
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a>Logged in as: <span>${sessionStorage.loggedInName}</span></a></li>
+        <li><a>Logged in as: <span>${sessionStorage.loggedInName}</span></a>
+        <li data-click="logout"><a>Sign out</a></li>
+        </li>
+
       </ul>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
