@@ -24,35 +24,26 @@ window.load = `
   js/classes/
     completed-test.class.js
     completed-test-list.class.js
-    completed-test-view.class.js
     load-teacher-content.class.js
     completed-question.class.js
-    completed-question-view.class.js
     completed-question-list.class.js
     test.class.js
     test-list.class.js
     test-view.class.js
     question.class.js
-    question-view.class.js
     question-list.class.js
     option.class.js
     option-list.class.js
-    option-view.class.js
     answer.class.js
-    answer-view.class.js
     answer-list.class.js
-    
-    
     user-list.class.js
     user-view.class.js
     user.class.js
     login.class.js
     login-view.class.js
     login-list.class.js
-    
     app.class.js
     header-footer.class.js
-    teacher-view.class.js
     result-view.class.js
     student.class.js
     student-list.class.js
@@ -65,14 +56,11 @@ window.load = `
     available-test.class.js
     available-test-list.class.js
 
-
-
   templates/
     test.html
     header-footer.html
     login.html
     testView.html
-    teacher-view.html
     result-view.html
     students.html
     completed-tests.html
@@ -81,7 +69,6 @@ window.load = `
     questionsidebar.html
     student-view.html
     available-tests.html
-    user.html
 
   js/main.js
 

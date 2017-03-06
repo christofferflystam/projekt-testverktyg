@@ -1,7 +1,8 @@
 Option.addTemplate('default', function(){return `
 
-<div><input type="radio" name=radio-option-${this.questions_question_id} id=question-option-${this.option_id}><label for=question-option-${this.option_id}>${this.option_text}</label></div>
-
-
+<div>
+	<input type="radio" name=radio-option-${this.questions_question_id} id=question-option-${this.option_id}>
+	<label for=question-option-${this.option_id}>${this.option_text}</label>
+</div>
 
 `});

@@ -1,39 +1,32 @@
 Test.addTemplate('default', function(){return `
-  
 
-
-  <div class="page-header">
-    <h1 id="test-name-title">${this.test_name}</h1>
-  </div>
-  <div class="row">
-    <div class="col-sm-3 col-xs-12 hidden-xs side-bar">
-      <div class="side-bar-content">
-        <ul class="list-group">
-          <!--Active för mockup-purpose -->
-          ${this.sidebaritems.display()}
-        </ul>
-      </div>
-    </div>
-    <div class="col-sm-6 col-xs-12 question">
-      
-      ${this.questions.display()}
-
-      
-    </div>
-    
-    <div class="col-sm-3 col-xs-12 side-bar">
-      <div class="side-bar-content">
-
-      </div>
+<div class="page-header">
+  <h1 id="test-name-title">${this.test_name}</h1>
+</div>
+<div class="row">
+  <div class="col-sm-3 col-xs-12 hidden-xs side-bar">
+    <div class="side-bar-content">
+      <ul class="list-group">
+        ${this.sidebaritems.display()}
+      </ul>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-8 button-left">
-      <button id="clickPrevious" type="button" class="btn-primary btn" data-click="previous">Previous</button>
-      <button id="clickNext" type="button" class="btn-primary btn" data-click="next">Next</button>
-    </div>
-    <div class="col-xs-4 button-right">
-      <button id="clickFinish" type="button" class="btn-primary btn" data-click="finish">Finish</button>
-    </div>  
+  <div class="col-sm-6 col-xs-12 question">
+    ${this.questions.display()}
   </div>
+  <div class="col-sm-3 col-xs-12 side-bar">
+    <div class="side-bar-content">
+      <!-- If we create manual correction on tests actions will be here -->
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-8 button-left">
+    <button id="clickPrevious" type="button" class="btn-primary btn" data-click="previous">Previous</button>
+    <button id="clickNext" type="button" class="btn-primary btn" data-click="next">Next</button>
+  </div>
+  <div class="col-xs-4 button-right">
+    <button id="clickFinish" type="button" class="btn-primary btn" data-click="finish">Finish</button>
+  </div>  
+</div>
 `});
