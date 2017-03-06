@@ -15,6 +15,7 @@ LoginView.addTemplate('default', function(){return `
   <div class="row">
     <div class="col-sm-12" align="center"</div>
       <label for="inputPassword">Password</label>
+     
       <input type="password" class="form-control" id="inputPassword" placeholder="Password">
     </div>
   </div>
@@ -23,7 +24,9 @@ LoginView.addTemplate('default', function(){return `
   <div class="controls">
   <div class="row">
     <div class="col-sm-12">
-      <button id="clickMe" type="button" class="btn-primary" data-click="checkIt">Sign in</button>
+      <button id="clickMe" type="button" class="btn-primary" data-click="checkIt">
+      Sign in</button>
+      <p id= "wrong">wrong username or password</p>
     </div>
 </div>
 </div>
