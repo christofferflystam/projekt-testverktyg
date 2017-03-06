@@ -72,7 +72,7 @@ class TestView extends Base {
 
     setTimeout(function() {
       document.location.href = '/student';
-    }, 5);
+    }, 50);
   
 	}
 	else{
