@@ -70,10 +70,9 @@ class TestView extends Base {
         
       });
 
-
-    
-
-      //redirect to studentview
+    setTimeout(function() {
+      document.location.href = '/student';
+    }, 5);
   
 	}
 	else{
