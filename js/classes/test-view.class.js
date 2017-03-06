@@ -10,8 +10,11 @@ class TestView extends Base {
     super(propertyValues);
   }
 
-   next(){
+
+//Function for going to the next question
+  next(){
  
+//loops through all questionsidebaritems and hides or shows them depending on the value found 
     var current_num = parseInt(document.querySelectorAll(".list-group-item.active")[0].innerText.replace( /^\D+/g, ''));
     current_num++;
 
@@ -35,8 +38,10 @@ class TestView extends Base {
 
   }
 
+//Function for going to the previous question
   previous(){
     
+//loops through all questionsidebaritems and hides or shows them depending on the value found 
     let current_num = parseInt(document.querySelectorAll(".list-group-item.active")[0].innerText.replace( /^\D+/g, ''));
     current_num--;
 
@@ -59,17 +64,18 @@ class TestView extends Base {
   	$('div[id=question-item_' + current_num +']').removeClass("hidden");
   }
 
- finish(){
+//Function that writes a test to the database but only if all questions has been answered
+  finish(){
 
- 	if($('input:radio:checked').length === document.querySelectorAll(".list-group-item").length){
+ 	  if($('input:radio:checked').length === document.querySelectorAll(".list-group-item").length){
 
- 	
-
-      this.generateDataFromDb((generatedData)=>{
+//calls the writeThingsToDb function after the data has been generated
+ 	    this.generateDataFromDb((generatedData)=>{
         this.writeThingsToDb(generatedData);
         
       });
 
+//redirects to the resultview
     setTimeout(function() {
       document.location.href = '/student';
     }, 50);
@@ -77,36 +83,38 @@ class TestView extends Base {
 	}
 	else{
     alert('Test incomplete, you need to fill out all the questions.');
-		console.log('test not complete');
+
 	}
 
  } 
 
-generateDataFromDb(callback){
-  this.completedQuestionListFromDb = new CompletedQuestionList();
+//Generates all relevant lists from the database that will be used to loop and compare values
+  generateDataFromDb(callback){
+    this.completedQuestionListFromDb = new CompletedQuestionList();
     this.questionListFromDb = new QuestionList();
     this.optionListFromDb = new OptionList();
     this.completedTestListFromDb = new CompletedTestList();
-      this.answerListFromDb = new AnswerList();
+    this.answerListFromDb = new AnswerList();
       
-      this.questionListFromDb.readAllFromDb(()=>{
-        console.log('Read from db');
-      });
-      this.optionListFromDb.readAllFromDb(()=>{
-        console.log('Read from db');
-      });
-      this.answerListFromDb.readAllFromDb(()=>{
-        console.log('Read from db');
-      });
-      this.completedTestListFromDb.readAllFromDb(()=>{
-        console.log('Read from db');
-      });
-      this.completedQuestionListFromDb.readAllFromDb(()=>{
-        console.log('Read from db');
-      });
+    this.questionListFromDb.readAllFromDb(()=>{
+      console.log('Read from db');
+    });
+    this.optionListFromDb.readAllFromDb(()=>{
+      console.log('Read from db');
+    });
+    this.answerListFromDb.readAllFromDb(()=>{
+      console.log('Read from db');
+    });
+    this.completedTestListFromDb.readAllFromDb(()=>{
+      console.log('Read from db');
+    });
+    this.completedQuestionListFromDb.readAllFromDb(()=>{
+      console.log('Read from db');
+    });
 
-      setTimeout(function() {
-      callback();
+//sets a delay to make sure all lists has been made before the callback is run
+    setTimeout(function() {
+    callback();
     }, 50); 
 
       
@@ -114,53 +122,60 @@ generateDataFromDb(callback){
 
 }
 
-writeThingsToDb(){
-    console.log('issdasd', this.completedQuestionListFromDb);
-        this.new_test_id = this.completedTestListFromDb.length;
-      this.new_test_name = $('h1[id=test-name-title]').text();
-      this.new_user_id = sessionStorage.user_id;
-      console.log(this.new_user_id);
-      this.insertCompletedTestInDb();
-    console.log('this is a completed test', this.new_test_id, this.new_test_name, this.new_user_id);
+//loops through lists generated from database and then writes to the database once
+//all new values has been decided
+  writeThingsToDb(){
+
+//calculates the next primary key for the completed_test table by checking the current length
+//sets the new test name to the current displayed test name
+//also checks which user is currently logged in before finally inserting the test
+    this.new_test_id = this.completedTestListFromDb.length;
+    this.new_test_name = $('h1[id=test-name-title]').text();
+    this.new_user_id = sessionStorage.user_id;
+    this.insertCompletedTestInDb();
       
-      this.amountofcompletedquestions = this.completedQuestionListFromDb.length;
-      this.amountofanswers = this.answerListFromDb.length;
-      this.amountofcompletedquestions--;
-      this.amountofanswers--;
+//does the same thing as above but for the completed_questions table
+    this.amountofcompletedquestions = this.completedQuestionListFromDb.length;
+    this.amountofanswers = this.answerListFromDb.length;
+    this.amountofcompletedquestions--;
+    this.amountofanswers--;
 
-      for(let i = 1; i <= document.querySelectorAll(".list-group-item").length; i++){
-        this.amountofcompletedquestions++;
-        this.new_question_id = this.amountofcompletedquestions;
-        this.new_question_text = $('div[id=question-text-' + i +']').text();
-        console.log('this is a completed question', this.new_question_id, this.new_question_text, this.new_test_id);
+//loops through all questions on the page and insert the new completed question
+    for(let i = 1; i <= document.querySelectorAll(".list-group-item").length; i++){
+      this.amountofcompletedquestions++;
+      this.new_question_id = this.amountofcompletedquestions;
+      this.new_question_text = $('div[id=question-text-' + i +']').text();
+      this.insertCompletedQuestionInDb();
 
-        this.insertCompletedQuestionInDb();
-        let temp_question_text = $('div[id=question-text-' + i +']').text();
+//assigns a variabel to the current question text, this is then used to compare with all
+//question_text values in the database to retrieve the foreign key
+//this foreign key number is then used to identify which group of radio buttons it should retrieve
+//its answer from
+      let temp_question_text = $('div[id=question-text-' + i +']').text();
           
-          for(let j = 0; j < this.questionListFromDb.length; j++) {
-          if(this.questionListFromDb[j]['question_text'] === temp_question_text) {
-              this.id_for_radio_button = this.questionListFromDb[j].question_id;
-              console.log('this is the id number for specific group of radio buttons', this.id_for_radio_button);
-              this.new_answer_text = $('input[name=radio-option-' + this.id_for_radio_button +']:checked').parent().find('label').text();
-              for(let k = 0; k < this.optionListFromDb.length; k++){
-                if(this.optionListFromDb[k]['option_text'] === this.new_answer_text && 
-                  this.optionListFromDb[k]['questions_question_id'] === this.id_for_radio_button){
-                  this.amountofanswers++;
-                  this.new_answer_id = this.amountofanswers;
-                  this.new_correct_or_wrong = this.optionListFromDb[k].correct_or_wrong;
-
-                  this.insertCompletedAnswerInDb();
-                  console.log('completed answer', this.new_answer_id, this.new_answer_text, this.new_question_id, this.new_correct_or_wrong);
-                    
-                    }
+      for(let j = 0; j < this.questionListFromDb.length; j++) {
+        if(this.questionListFromDb[j]['question_text'] === temp_question_text) {
+            this.id_for_radio_button = this.questionListFromDb[j].question_id;
+            this.new_answer_text = $('input[name=radio-option-' + this.id_for_radio_button +']:checked').parent().find('label').text();
+            
+//another loop that compares the newly found answer_text with all possible option_text values
+//that also shares the same newly found foreign key in case there are multiple options
+//in the database with the same value, it then inserts the answer in the database
+            for(let k = 0; k < this.optionListFromDb.length; k++){
+              if(this.optionListFromDb[k]['option_text'] === this.new_answer_text && 
+                this.optionListFromDb[k]['questions_question_id'] === this.id_for_radio_button){
+                this.amountofanswers++;
+                this.new_answer_id = this.amountofanswers;
+                this.new_correct_or_wrong = this.optionListFromDb[k].correct_or_wrong;
+                this.insertCompletedAnswerInDb();                   
                   }
+                }
               }
-          }
-        } 
-}
+            }
+          } 
+  }
 
   insertCompletedTestInDb(){
-  	console.log('logging test', this.new_test_id, this.new_test_name, this.new_user_id);
     this.db.newCompletedTest({
       test_id: this.new_test_id,
       test_name: this.new_test_name,
@@ -168,8 +183,7 @@ writeThingsToDb(){
     });
   }
 
-   insertCompletedQuestionInDb(){
-   	console.log('logging question', this.new_question_id, this.new_question_text, this.new_test_id);
+  insertCompletedQuestionInDb(){
     this.db.newCompletedQuestion({
       question_id: this.new_question_id,
       question_text: this.new_question_text,
@@ -178,7 +192,6 @@ writeThingsToDb(){
   }
 
    insertCompletedAnswerInDb(){
-   	console.log('logging answers', this.new_answer_id, this.new_answer_text, this.new_question_id, this.new_correct_or_wrong);
     this.db.newCompletedAnswer({
       answer_id: this.new_answer_id,
       answer_text: this.new_answer_text,

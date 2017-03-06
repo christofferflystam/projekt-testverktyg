@@ -22,8 +22,7 @@ class LoadTestContent extends Base{
 
     //populates the empty TestList using
     //its readALLFromDb function
-    testListFromDb.readAllFromDb(()=>{
-    
+    testListFromDb.readAllFromDb(()=>{    
 
     //creates a TestView that takes one TestList
     //as argument
@@ -31,6 +30,10 @@ class LoadTestContent extends Base{
       tests: testListFromDb
     });   
 
+//creates lists from database to loop through
+    optionsListFromDb.readAllFromDb(()=>{
+      console.log('Read from db');
+    });
 
     optionsListFromDb.readAllFromDb();
 
@@ -79,10 +82,11 @@ class LoadTestContent extends Base{
     //as an argument in this function, and then
     //applies the newly created TestView as
     //an argument
-    //remember that callback in this case is the 
-    //function we supplied before which was this.start
+
     this.callback(theTestView);
     
-  });
+    
+
+   });
   }
 }

@@ -9,6 +9,7 @@ class LoadTeacherContent extends Base{
   generateStudents(){
   	var studentsFromDb = new StudentList();
   	studentsFromDb.readStudentsFromDb(()=>{
+      console.log('Read from db');
     });
 
     var theResultView = new ResultView({
@@ -22,7 +23,9 @@ class LoadTeacherContent extends Base{
 
     var allCompletedAnswer = new AnswerList();
 
-    allCompletedAnswer.readAllFromDb();
+    allCompletedAnswer.readAllFromDb(()=>{
+      console.log('Read from db');
+    });
 
     allCompletedQuestion.readAllFromDb(() =>{
 

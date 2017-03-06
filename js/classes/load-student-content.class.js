@@ -10,7 +10,7 @@ class LoadStudentContent extends Base {
 	generateStudentView(){
 		var availableTestsFromDb = new AvailableTestList();
 		availableTestsFromDb.readAllFromDb(()=>{
-
+			console.log('Read from db');
 		});
 		
 		var studentsFromDb = new StudentList();
@@ -34,7 +34,9 @@ class LoadStudentContent extends Base {
 
 		var allCompletedAnswer = new AnswerList();
 
-		allCompletedAnswer.readAllFromDb();
+		allCompletedAnswer.readAllFromDb(()=>{
+			console.log('Read from db');
+		});
 
 		allCompletedQuestion.readAllFromDb(() =>{
 
