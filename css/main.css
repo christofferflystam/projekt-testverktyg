@@ -47,6 +47,11 @@ body {
 	border: 0;
 }
 
+#wrong{
+	display: none;
+	color: red;
+}
+
 /*TEST-PAGE*/
 .list-group>.list-group-item>a {
 	color: black;

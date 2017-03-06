@@ -42,7 +42,7 @@ class LoginView extends Base {
 				}
 				count2 += 1; /* One user has been checked, move up in the order */
 				if(username === true && pw === true){
-					alert("Access Granted, Welcome " + inputEmail + "."); /*Welcome the user */
+					 
 					
 					/*Sets current user id to logged in user*/
 					updateUserId(key);
@@ -72,7 +72,8 @@ class LoginView extends Base {
 		}
 
 		if(!access){ /* If authentication failed */
-			alert("Access Denied.");
+
+			$("#wrong").css("display", "block");
 		}
 	}
 
