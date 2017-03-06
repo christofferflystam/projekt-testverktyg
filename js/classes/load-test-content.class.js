@@ -22,8 +22,7 @@ class LoadTestContent extends Base{
 
     //populates the empty TestList using
     //its readALLFromDb function
-    testListFromDb.readAllFromDb(()=>{
-    
+    testListFromDb.readAllFromDb(()=>{    
 
     //creates a TestView that takes one TestList
     //as argument
@@ -31,14 +30,16 @@ class LoadTestContent extends Base{
       tests: testListFromDb
     });   
 
-
-    optionsListFromDb.readAllFromDb();
-
-
+//creates lists from database to loop through
+    optionsListFromDb.readAllFromDb(()=>{
+      console.log('Read from db');
+    });
 
     questionsListFromDb.readAllFromDb(()=>{
     
-
+//loops through the created lists and pushes the correct objects to it's parents arraylist,
+//option object inserted into the question objects optionList array which in turn is inserted
+//into the test objects questionList array
       for (let j = 0; j < questionsListFromDb.length; j++){
 
         for (let i = 0; i < optionsListFromDb.length; i++){
@@ -87,13 +88,11 @@ class LoadTestContent extends Base{
     //as an argument in this function, and then
     //applies the newly created TestView as
     //an argument
-    //remember that callback in this case is the 
-    //function we supplied before which was this.start
 
     this.callback(theTestView);
     
     
 
-  });
+   });
   }
 }
