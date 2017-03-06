@@ -35,8 +35,6 @@ class LoadTestContent extends Base{
       console.log('Read from db');
     });
 
-    optionsListFromDb.readAllFromDb();
-
     questionsListFromDb.readAllFromDb(()=>{
     
       for (let j = 0; j < questionsListFromDb.length; j++){
