@@ -14,13 +14,12 @@ class LoadTestContent extends Base{
 
 
   //loads all tests then runs the callback function
-  //to display it
-  //in this example the callback keyword will be equal
-  //to the function this.start
+  //to push data to correct list
+
   loadTestData(pushData){
       
-    //creates an empty TestList
-    //that will contain the Test objects
+    //creates empty lists
+    //that will contain the objects
     this.testListFromDb = new TestList();
     this.questionsListFromDb = new QuestionList();
     this.optionsListFromDb = new OptionList();
@@ -46,9 +45,7 @@ class LoadTestContent extends Base{
 
 
     //uses the callback function that was sent
-    //as an argument in this function, and then
-    //applies the newly created TestView as
-    //an argument
+    //as an argument in this function
 
     setTimeout(function() {
     pushData();
@@ -57,7 +54,7 @@ class LoadTestContent extends Base{
    });
   }
 
-
+//populates the correct lists with the data
   pushDataToLists(){
       for (let j = 0; j < this.questionsListFromDb.length; j++){
 
