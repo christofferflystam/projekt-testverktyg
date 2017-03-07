@@ -115,9 +115,6 @@ class TestView extends Base {
     writeData();
     }, 50); 
 
-      
-
-
 }
 
 //loops through lists generated from database and then writes to the database once
