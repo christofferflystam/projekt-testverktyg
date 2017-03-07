@@ -56,8 +56,8 @@ class LoadTestContent extends Base{
 
 //populates the correct lists with the data
   pushDataToLists(){
+      
       for (let j = 0; j < this.questionsListFromDb.length; j++){
-
         for (let i = 0; i < this.optionsListFromDb.length; i++){
           if(this.questionsListFromDb[j].question_id == this.optionsListFromDb[i].questions_question_id){
             this.questionsListFromDb[j].options.push(this.optionsListFromDb[i]);
