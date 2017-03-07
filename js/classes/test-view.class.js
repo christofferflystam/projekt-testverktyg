@@ -70,15 +70,13 @@ class TestView extends Base {
  	  if($('input:radio:checked').length === document.querySelectorAll(".list-group-item").length){
 
 //calls the writeThingsToDb function after the data has been generated
- 	    this.generateDataFromDb((generatedData)=>{
-        this.writeThingsToDb(generatedData);
+      this.generateDataFromDb((generatedData)=>{
+        this.writeThingsToDb((generatedData)=>{
+//redirects to the resultview
+          this.redirect();
+        })
         
       });
-
-//redirects to the resultview
-    setTimeout(function() {
-      document.location.href = '/student';
-    }, 200);
   
 	}
 	else{
@@ -89,7 +87,7 @@ class TestView extends Base {
  } 
 
 //Generates all relevant lists from the database that will be used to loop and compare values
-  generateDataFromDb(callback){
+  generateDataFromDb(writeData){
     this.completedQuestionListFromDb = new CompletedQuestionList();
     this.questionListFromDb = new QuestionList();
     this.optionListFromDb = new OptionList();
@@ -114,7 +112,7 @@ class TestView extends Base {
 
 //sets a delay to make sure all lists has been made before the callback is run
     setTimeout(function() {
-    callback();
+    writeData();
     }, 50); 
 
       
@@ -124,7 +122,7 @@ class TestView extends Base {
 
 //loops through lists generated from database and then writes to the database once
 //all new values has been decided
-  writeThingsToDb(){
+  writeThingsToDb(redirectToResult){
 
 //calculates the next primary key for the completed_test table by checking the current length
 //sets the new test name to the current displayed test name
@@ -173,7 +171,16 @@ class TestView extends Base {
               }
             }
           } 
+
+    redirectToResult();
   }
+
+//redirects to the resultview
+  redirect(){
+      document.location.href = '/student';
+    
+  }
+
 
   insertCompletedTestInDb(){
     this.db.newCompletedTest({
